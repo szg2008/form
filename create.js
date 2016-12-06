@@ -42,6 +42,7 @@ var pinToBottom = function() {
   }
 };
 var formModule = angular.module('form', ["ngDateTime", 'ui.sortable',  'ngSanitize', 'ngAnimate']);
+
 formModule.service('Form',['$rootScope', 'AppState', '$http',function(rootScope, AppState, http){
   var service = {
     addField : function(type,fieldId,fieldIdx){
@@ -505,33 +506,6 @@ formModule.directive("ueditor", function($timeout) {
   };
 });
 
-// formModule.directive("fixedWhileScroll", function(){
-//   return {
-//     restrict:"A",
-//     link: function ( scope, element, attrs ,controller) {
-//       angular.element(window).bind("scroll",function(){
-//         var sumHeight = document.documentElement.clientHeight+document.body.scrollTop;
-//         var bodyHeight = document.body.scrollHeight;
-//         // var height1 = element[0].clientHeight-document.documentElement.clientHeight;
-//         // var height2 = bodyHeight-sumHeight;
-//         if(this.pageYOffset>206){
-//           if(bodyHeight < sumHeight){
-//             return;
-//           }
-//           element.css('margin-top',this.pageYOffset-205+"px");
-//         }else{
-//           element.css('margin-top',0);
-//         }
-//         var height1 = element[0].clientHeight-document.documentElement.clientHeight;
-//         var height2 = bodyHeight-sumHeight;
-//         // console.log(element[0].clientHeight-document.documentElement.clientHeight);
-//         // console.log(height2-height1);
-//         // console.log(bodyHeight);
-//         // console.log(sumHeight);
-//       });
-//     }
-//   };
-// });
 formModule.directive("showRightPane", function($rootScope){
   return {
     restrict:"A",
@@ -551,6 +525,7 @@ formModule.directive("showRightPane", function($rootScope){
     }
   };
 });
+
 formModule.directive('pinBottom', function($window) {
   return {
     restrict:"A",
@@ -659,7 +634,6 @@ formModule.directive("fieldDrag",['Form','$document','AppState',function(Form, d
     }
   };
 }]);
-
 
 formModule.controller('DisplayFormController',['$scope','AppState', 'Form',function($scope, AppState, Form){
   $scope.state = AppState;
@@ -808,7 +782,6 @@ formModule.directive('focusNextInput', function() {
 });
 
 formModule.controller("TabNavCtrl", ['$scope', 'AppState', 'Form',  function($scope, AppState, Form) {
-
   $scope.state = AppState;
   var panes = $scope.panes = [];
   var controller = this;
@@ -839,7 +812,7 @@ formModule.controller("TabNavCtrl", ['$scope', 'AppState', 'Form',  function($sc
 
 formModule.directive("tabNav", function(AppState) {
   return {
-    restrict: 'A',
+    restrict: 'A',//属性
     scope: {
       panePosition:"@"
     },
@@ -851,18 +824,18 @@ formModule.directive("tabNav", function(AppState) {
 
 formModule.directive("tabPane", function(AppState) {
   return {
-    restrict: 'E',
-    transclude: true,
-    require : "^tabNav",
-    scope: {
-      tabTitle: '@',
-      mode: '@'
-    },
-    link: function(scope, element, attrs, tabNavCtrl) {
-      scope.state = AppState;
-      // tabNavCtrl.addPane(scope);
-    },
-    template: document.querySelector("#tab-pane-tpl").innerHTML
+      restrict: 'E',//元素
+      transclude: true,
+      require : "^tabNav",
+      scope: {
+        tabTitle: '@',
+        mode: '@'
+      },
+      link: function(scope, element, attrs, tabNavCtrl) {
+        scope.state = AppState;
+        tabNavCtrl.addPane(scope);
+      },
+      template: document.querySelector("#tab-pane-tpl").innerHTML
   };
 });
 
@@ -918,11 +891,13 @@ formModule.directive("withEm", function(AppState) {
     scope.domEm = element[0];
   };
 });
+
 formModule.directive("initTime", function(AppState) {
   return function(scope, element) {
     scope.domEm = element[0];
   };
 });
+
 formModule.directive("styleSelect", function(AppState) {
   return {
     restrict : 'A',
@@ -963,7 +938,6 @@ formModule.filter("hideTips", function() {
     return hasFields || isXMatch;
   };
 });
-
 
 formModule.filter("showFirstOccupy", function() {
   return function(state) {
@@ -1021,6 +995,7 @@ formModule.filter("showOccupy", function() {
     }
   };
 });
+
 formModule.controller("FormActionCtrl", function($scope, $element, $http, AppState,Form) {
   var saveToken = false;
   $scope.saveForm = function() {
@@ -1048,7 +1023,6 @@ formModule.controller("FormActionCtrl", function($scope, $element, $http, AppSta
         if(rs.result.items){
           Form.updateGoodsItems(rs.result.items);
         }
-        // console.log(AppState.form);
         AppState.initForm = angular.copy(AppState.form);
         $scope.popupSuccessWind();
       }else{
@@ -1094,9 +1068,7 @@ formModule.controller("FormActionCtrl", function($scope, $element, $http, AppSta
   };
 });
 
-formModule.controller(
-  'TracingSettingController',
-  function($rootScope, $scope, $element, $http, AppState) {
+formModule.controller('TracingSettingController',function($rootScope, $scope, $element, $http, AppState) {
     $scope.form = AppState.form;
     $scope.form.tracing = ($scope.form.tracing&&$scope.form.tracing.mode) ? $scope.form.tracing:{};
     $scope.state = AppState;
@@ -1245,17 +1217,6 @@ formModule.controller(
       tempTracing = angular.copy($scope.form.tracing);
       $scope.managersCount = $scope.countManagers();
       $scope.openRightPop = false;
-      // $http.post('/member/form/save', AppState.form).success(function(rs) {
-      //   if(rs.status == "success") {
-      //     alert('保存成功');
-      //     $scope.isSave = true;
-      //     tempTracing = $scope.form.tracing;
-      //     $scope.managersCount = $scope.countManagers();
-      //     $scope.openRightPop = false;
-      //   }else{
-      //     alert('保存失败');
-      //   }
-      // });
     };
     $scope.onClose = function() {
       $scope.form.tracing = angular.copy(tempTracing);
@@ -1367,7 +1328,6 @@ formModule.directive('changeShowMode', function() {
 
 formModule.controller('FansLimitCtrl',function($rootScope, $scope, $element, $http, AppState) {
 
-  // $scope.fansSet = AppState.form.fans;
   $scope.tempFans = angular.copy($scope.fans);
   $scope.step = "set";
   $scope.getCustomers = function(){
@@ -1543,5 +1503,4 @@ formModule.controller('FansLimitCtrl',function($rootScope, $scope, $element, $ht
       return $scope.customers.groupsArr.indexOf(v) > -1;
     });
   }
-
 });

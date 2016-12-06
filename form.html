@@ -2,6 +2,18 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="renderer" content="webkit">
+    <title>form</title>
+    <link rel="stylesheet" type="text/css" href="./base.css">
+    <link rel="stylesheet" type="text/css" href="./global.css">
+    <link rel="stylesheet" type="text/css" href="./layout.css">
+    <link rel="stylesheet" type="text/css" href="./dpl.css">
+    <link rel="stylesheet" type="text/css" href="./info.css">
+    <link rel="stylesheet" type="text/css" href="./create.css">
+    <link rel="stylesheet" type="text/css" href="./datepicker.css">
+    <link rel="stylesheet" type="text/css" href="./time.css">
+    <link rel="stylesheet" type="text/css" href="./form-reply-tips.css">
+    <link rel="stylesheet" type="text/css" href="./info.css">
     <style type="text/css">
         @charset "UTF-8";
         [ng\:cloak],
@@ -18,19 +30,6 @@
             display: block;
         }
     </style>
-    <meta name="renderer" content="webkit">
-    <title>form</title>
-    <link rel="stylesheet" type="text/css" href="./base.css">
-    <link rel="stylesheet" type="text/css" href="./global.css">
-    <link rel="stylesheet" type="text/css" href="./layout.css">
-    <link rel="stylesheet" type="text/css" href="./dpl.css">
-    <link rel="stylesheet" type="text/css" href="./info.css">
-    <link rel="stylesheet" type="text/css" href="./weixin-set.css">
-    <link rel="stylesheet" type="text/css" href="./create.css">
-    <link rel="stylesheet" type="text/css" href="./datepicker.css">
-    <link rel="stylesheet" type="text/css" href="./time.css">
-    <link rel="stylesheet" type="text/css" href="./form-reply-tips.css">
-    <link rel="stylesheet" type="text/css" href="./info.css">
     <script src="./hm.js"></script>
     <script src="./sea.js"></script>
     <script>
@@ -62,7 +61,7 @@
     <script>
     var _helpid = "";
     </script>
-    <script src="./zh-cn.js" type="text/javascript" defer="defer"></script>
+    <script src="./lib/ueditor/zh-cn.js" type="text/javascript" defer="defer"></script>
     <!-- <link href="./lib/ueditor/ueditor.css" type="text/css" rel="stylesheet"> -->
     <link charset="utf-8" rel="stylesheet" href="./ui-tips-box.css">
     <link charset="utf-8" rel="stylesheet" href="./minEmoji.css">
@@ -77,28 +76,21 @@
         <script type="text/template" id="tab-nav-tpl">
             <div class="tabs">
                 <ul class="fn-clear">
-                    <li ng-repeat="pane in panes" class="{{pane.mode}}" ng-class="{selected: state.mode == pane.mode }" ng-click="selectPane(pane)">{{pane.tabTitle}}</li> -->
-                    <li class="createForm" ng-class="{selected: state.mode == 'createForm'}" ng-click="selectPane('createForm')">组件</li>
-                    <li class="editField" ng-class="{selected: state.mode == 'editField'}" ng-click="selectPane('editField')">组件设置</li>
-                    <li class="editForm" ng-class="{selected: state.mode == 'editForm'}" ng-click="selectPane('editForm')">表单设置</li>
+                    <li ng-repeat="pane in panes" class="{{pane.mode}}" ng-class="{selected: state.mode == pane.mode }" ng-click="selectPane(pane)">{{pane.tabTitle}}</li>
                 </ul>
             </div>
             <div class="tab-content" ng-transclude></div>
         </script>
         <script type="text/template" id="tab-pane-tpl">
+
             <div class="pane {{mode}}" ng-show="state.mode == mode" ng-transclude></div>
+
         </script>
         <div class="box-full show-right-pane" show-right-pane="" ng-controller="DisplayFormController">
             <div class="box-bd">
+                <!--Left start-->
                 <div class="settings">
                     <div tab-nav="" class="tab-nav ng-isolate-scope" pane-position="left">
-                        <div class="tabs">
-                            <ul class="fn-clear">
-                                <li class="createForm selected" ng-class="{selected: state.mode == &#39;createForm&#39;}" ng-click="selectPane(&#39;createForm&#39;)">组件</li>
-                                <li class="editField" ng-class="{selected: state.mode == &#39;editField&#39;}" ng-click="selectPane(&#39;editField&#39;)">组件设置</li>
-                                <li class="editForm" ng-class="{selected: state.mode == &#39;editForm&#39;}" ng-click="selectPane(&#39;editForm&#39;)">表单设置</li>
-                            </ul>
-                        </div>
                         <div class="tab-content" ng-transclude="">
                             <tab-pane tab-title="组件" mode="createForm" class="ng-scope ng-isolate-scope">
                                 <div class="pane createForm" ng-show="state.mode == mode" ng-transclude="">
@@ -235,11 +227,10 @@
                                     </div>
                                 </div>
                             </tab-pane>
-                            <!-- ngIf: !showRightPane -->
-                            <!-- ngIf: !showRightPane -->
                         </div>
                     </div>
                 </div>
+                <!--Left end-->
                 <div class="display" id="form-preview">
                     <div class="display-wrap">
                         <div class="form-content">
@@ -391,12 +382,8 @@ body{margin:8px;font-family:sans-serif;font-size:16px;}p{margin:5px 0;}&lt;/styl
                             <div class="form-body">
                                 <div class="fields ng-pristine ng-untouched ng-valid ng-scope" sortable="" ng-model="state.form.fields">
                                     <div data-field-id="" data-field-index="-1" class="field-occupy ng-hide" ng-show="state| showOccupy: -1"></div>
-                                    <!-- ngRepeat: field in state.form.fields -->
                                 </div>
                                 <div class="field-occupy ng-hide" ng-show="state | showInitOccupy"></div>
-                                <!-- <div class="move-tips" ng-hide="(state | hideTips) || (state.mode == &#39;editForm&#39;)">
-                                    <img src="./img/move-tips.png">
-                                </div> -->
                             </div>
                         </div>
                         <div class="form-footer ng-scope" ng-controller="FormActionCtrl" id="form-footer">
@@ -430,17 +417,6 @@ body{margin:8px;font-family:sans-serif;font-size:16px;}p{margin:5px 0;}&lt;/styl
                 <!-- ngIf: showRightPane -->
                 <div class="settings right-pane ng-scope" ng-if="showRightPane">
                     <div tab-nav="" class="tab-nav ng-isolate-scope" pane-position="right">
-                        <div class="tabs">
-                            <ul class="fn-clear">
-                                <!-- <li ng-repeat="pane in panes"
-            class="{{pane.mode}}"
-            ng-class="{selected: state.mode == pane.mode }"
-            ng-click="selectPane(pane)">{{pane.tabTitle}}</li> -->
-                                <li class="createForm selected" ng-class="{selected: state.mode == &#39;createForm&#39;}" ng-click="selectPane(&#39;createForm&#39;)">组件</li>
-                                <li class="editField" ng-class="{selected: state.mode == &#39;editField&#39;}" ng-click="selectPane(&#39;editField&#39;)">组件设置</li>
-                                <li class="editForm" ng-class="{selected: state.mode == &#39;editForm&#39;}" ng-click="selectPane(&#39;editForm&#39;)">表单设置</li>
-                            </ul>
-                        </div>
                         <div class="tab-content" ng-transclude="">
                             <tab-pane tab-title="组件设置" mode="editField" class="ng-scope ng-isolate-scope">
                                 <div class="pane editField ng-hide" ng-show="state.mode == mode" ng-transclude="">
@@ -467,9 +443,9 @@ body{margin:8px;font-family:sans-serif;font-size:16px;}p{margin:5px 0;}&lt;/styl
                                             <div>
                                                 <div class="setting-sub-group">
                                                     <check-group class="check-group fn-clear text" options="[&quot;提示信息&quot;, &quot;text&quot;, &quot;跳转到网页&quot;, &quot;url&quot;]" ng-model="state.form.successTip.notifyType">
-                                                        <!-- ngRepeat: option in options --><a ng-repeat="option in options" ng-class="{on : &#39;on&#39;}" ng-click="setOption(option.value)" class="ng-binding ng-scope on">提示信息</a>
-                                                        <!-- end ngRepeat: option in options --><a ng-repeat="option in options" ng-class="{on : &#39;on&#39;}" ng-click="setOption(option.value)" class="ng-binding ng-scope on">跳转到网页</a>
-                                                        <!-- end ngRepeat: option in options -->
+                                                        <a ng-repeat="option in options" ng-class="{on : &#39;on&#39;}" ng-click="setOption(option.value)" class="ng-binding ng-scope on">提示信息</a>
+                                                        <a ng-repeat="option in options" ng-class="{on : &#39;on&#39;}" ng-click="setOption(option.value)" class="ng-binding ng-scope on">跳转到网页</a>
+                                                        
                                                     </check-group>
                                                 </div>
                                                 <div class="setting-sub-group" ng-show="state.form.successTip.notifyType == &#39;text&#39;">
@@ -490,15 +466,14 @@ body{margin:8px;font-family:sans-serif;font-size:16px;}p{margin:5px 0;}&lt;/styl
                                             <label ng-class="{&#39;first&#39;:state.form.goodsFieldIdx}" change-show-mode=""><em class="switch"></em>表单限制</label>
                                             <div>
                                                 <ul class="setting-option">
-                                                    <!-- ngIf: state.hasApi && state.hasSilverRight -->
-                                                    <!-- ngIf: !state.hasApi || !state.hasSilverRight -->
+                                                    
                                                     <li ng-if="!state.hasApi || !state.hasSilverRight" class="ng-scope">
                                                         <input type="checkbox" ng-model="state.form.limit.fans.limit" ng-click="showFansLimitSet(state.form.limit.fans,false)" class="ng-pristine ng-untouched ng-valid">仅限特定粉丝填写<em class="v-basic-icon"></em>
                                                     </li>
-                                                    <!-- end ngIf: !state.hasApi || !state.hasSilverRight -->
+                                                    
                                                     <li>
                                                         <input type="checkbox" set-user-limit="" ng-checked="state.form.limit.times != -1" limit="state.form.limit.times" class="ng-isolate-scope">设置单个微信用户可填写的次数
-                                                        <!-- ngIf: state.form.limit.times != -1 -->
+                                                        
                                                     </li>
                                                     <li>
                                                         <input type="checkbox" ng-model="state.form.deadline.never" ng-true-value="false" ng-false-value="true" class="ng-pristine ng-untouched ng-valid">设置有效期
@@ -1090,7 +1065,7 @@ body{margin:8px;font-family:sans-serif;font-size:16px;}p{margin:5px 0;}&lt;/styl
                                                 已选中 <span class="ng-binding">0个</span> 标签
                                             </div>
                                             <ul ng-show="customers.labels.length" class="ng-hide">
-                                                <!-- ngRepeat: label in customers.labels -->
+                                                
                                             </ul>
                                             <div class="empty" ng-show="!customers.labels.length">当前暂无标签，无法通过该方式筛选粉丝</div>
                                         </div>
@@ -1104,7 +1079,7 @@ body{margin:8px;font-family:sans-serif;font-size:16px;}p{margin:5px 0;}&lt;/styl
                                                 已选中 <span class="ng-binding">0个</span> 分组
                                             </div>
                                             <ul ng-show="customers.groups.length" class="ng-hide">
-                                                <!-- ngRepeat: group in customers.groups -->
+                                                
                                             </ul>
                                             <div class="empty" ng-show="!customers.groups.length">当前暂无分组，无法通过该方式筛选粉丝</div>
                                         </div>
