@@ -1,0 +1,37 @@
+/* #form-reply-tips { */
+/*   font-size:12px; */
+/* } */
+/* #form-reply-tips p { */
+/*   margin-bottom:5px; */
+/* } */
+/* #form-reply-tips p input { */
+/*   margin-right:3px; */
+/*   vertical-align: middle; */
+/* } */
+/* #form-reply-tips .form-confirm { */
+/*   margin-top:25px; */
+/* } */
+/* #form-reply-tips:before { */
+/* 	content:""; */
+/* 	position: absolute; */
+/*   left: 40px; */
+/*   top: 73px; */
+/* 	display: inline-block; */
+/* 	width:35px; */
+/* 	height:40px; */
+/* 	background:url(../../../img/member/sprites/user/user-auth-tips-icon.png) no-repeat; */
+/* } */
+/* #wp-form-reply-tips .pop-bd-wrap { */
+/*   padding:35px 40px 35px 85px; */
+/* } */
+/* #form-reply-tips .form-confirm label { */
+/*   background:#ff0000; */
+/*   color:#fff; */
+/*   display: inline-block; */
+/*   line-height: 1; */
+/*   padding:2px 3px; */
+/* } */
+/* #form-reply-tips .form-confirm strong { */
+/*   color:#ff0000; */
+/*   font-weight: normal; */
+/* } */

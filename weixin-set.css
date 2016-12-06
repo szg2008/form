@@ -1,0 +1,208 @@
+#weixin-set p {
+	margin-bottom:5px;
+	color:#000;
+}
+#weixin-set .config {
+	margin-top:15px;
+}
+#weixin-set .config h4 {
+	color:#333;
+	font-weight: bold;
+}
+#weixin-set .config-box {
+	margin-top:8px;
+	background:#f7f7f7;
+}
+#weixin-set .config-box-wrap {
+	padding:10px 25px;
+	color:#333;
+}
+#weixin-set .status {
+    margin-bottom:8px;
+}
+#weixin-set .status em {
+	background:#479409;
+	display: inline-block;
+	width:8px;
+	height:8px;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	-webkit-box-shadow:0 0 10px #3a7c05;
+    -moz-box-shadow:0 0 10px #3a7c05;
+    box-shadow:0 0 10px #3a7c05;
+    margin:0 6px 0 8px;
+}
+#weixin-set .token-cover,
+#weixin-set .token-show {
+	color:#b7b7b7;
+	background:#e9e9e9;
+	display: inline-block;
+	height:21px;
+	line-height: 20px;
+	padding:0 8px;
+	-moz-user-select: none;  
+	-webkit-user-select: none;  
+	-ms-user-select: none;
+}
+#weixin-set a:hover.token-cover {
+	text-decoration: none;
+	color:#999;
+}
+#weixin-set .token-show {
+	height:19px;
+	line-height: 18px;
+	display: inline-block;
+	border:1px dashed #b5b5b5;
+	background:#e9e9e9;
+	color:#666;
+	cursor: pointer;
+}
+#weixin-set span:hover.token-show {
+	color:#333;
+}
+#weixin-set .token-cover.hidden,
+#weixin-set .token-show.hidden {
+	display: none;
+}
+#weixin-set .level-basic,
+#weixin-set .level-advance {
+	margin-left:-4px;
+}
+#weixin-set .level-basic {
+	color:#479409;
+}
+#weixin-set .level-advance {
+	color:#fff;
+	background:#dc7a2b;
+	line-height: 1;
+	padding:1px 3px;
+}
+#weixin-set .set-field {
+	padding:10px 0;
+	color:#333;
+	position: relative;
+}
+#weixin-set .set-field label {
+	display: inline-block;
+	width:120px;
+	padding-left:5px;
+	color:#666;
+}
+#weixin-set .set-field .set-edit-trigger {
+	background:url(../../../img/member/sprites/icon-all.png) left -709px no-repeat;
+	padding-left:12px;
+	position: absolute;
+	right:10px;
+	top:18px;
+	color:#333;
+}
+#weixin-set .set-field a:hover.set-edit-trigger {
+	text-decoration: none;
+}
+#weixin-set .set-title {
+	margin:30px 0 10px 0;
+	color:#999;
+}
+#weixin-set .set-title:first-child {
+	margin-top:0;
+}
+#weixin-set .set-title h4 {
+	color:#333;
+	font-weight: bold;
+	padding-left:5px;
+	display: inline-block;
+	margin-right:10px;
+}
+#weixin-set .qr-code {
+	display: inline-block;
+	border:1px solid #ddd;
+	text-align: center;
+	line-height: 1;
+	vertical-align: top;
+}
+#weixin-set .qr-code img {
+	display: block;
+}
+#weixin-set .qr-code a {
+	margin-bottom:5px;
+	display: inline-block;
+}
+#weixin-set .account-info {
+	padding:25px 30px 0 30px;
+}
+#weixin-set .account-info .avatar img {
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	border-radius: 50%;
+}
+#weixin-set .account-detail {
+	margin-left:10px;
+	padding-top:5px;
+}
+#weixin-set .account-info dt {
+	font-size:14px;
+	color:#000;
+}
+#weixin-set .account-info dd {
+	margin-top:3px;
+}
+#weixin-set .info-tabs {
+	border-bottom:1px solid #dbdbdb;
+	margin:40px 0 30px 0;
+	padding-left:5px;
+}
+#weixin-set .info-tabs a {
+	color:#999;
+	margin-left:30px;
+	height:30px;
+	line-height: 30px;
+	display: inline-block;
+}
+#weixin-set .info-tabs a:hover {
+	text-decoration: none;
+	color:#666;
+}
+#weixin-set .info-tabs a.selected {
+	color:#666;
+	border-bottom:3px solid #59af25;
+	margin-bottom:-1px;
+}
+#weixin-set .basic-info {
+	padding:0 30px 0 50px;
+}
+#weixin-set .biz-form {
+	padding:20px 0 0 30px;
+}
+#weixin-set .form-field label {
+	display: inline-block;
+	width:100px;
+	text-align: right;
+	font-weight: normal;
+	color:#666;
+}
+#weixin-set .form-field .field-detail {
+	display: inline-block;
+}
+#weixin-set .form-field .field-detail input[type=text] {
+	width:300px;
+}
+#weixin-set .form-field.vtop label,
+#weixin-set .form-field.vtop .field-detail {
+	vertical-align: top;
+}
+#weixin-set .form-field .tips {
+	color:#999;
+}
+#weixin-set .form-field {
+	margin-bottom:20px;
+}
+#weixin-set .biz-action {
+	padding-left:105px;
+}
+#weixin-set .limit-tips {
+	color:#999;
+}
+#weixin-set input.alert {
+	border:1px solid #d95b5b;
+}
