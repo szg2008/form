@@ -128,7 +128,7 @@
 }
 .box-full.show-right-pane .settings.right-pane .tabs li{
   display: inline-block;
-  width: 50%;
+  width: 100%;
   margin-left: -1px;
   float: left;
 }
@@ -269,7 +269,7 @@ field .ng-binding:before{
   display: inline-block;
   vertical-align: middle;
   margin: 0 0.8rem;
-  background: url(../../../img/member/sprites/form/field-icon.png?t=20160330) no-repeat;
+  background: url(./img/field-icon.png) no-repeat;
 }
 field.birth .ng-binding:before{
   background-position: 0 -36px;

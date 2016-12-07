@@ -798,16 +798,6 @@ formModule.controller("TabNavCtrl", ['$scope', 'AppState', 'Form',  function($sc
     }
     return true;
   };
-
-  $scope.selectPane = function(paneMode) {
-    if($(".box-full").hasClass("show-right-pane") && paneMode == "createForm"){
-      return;
-    }
-    var noError = controller.checkSettingErrors(AppState.mode);
-    if(noError) {
-      AppState.mode = paneMode;
-    }
-  };
 }]);
 
 formModule.directive("tabNav", function(AppState) {

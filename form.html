@@ -61,8 +61,8 @@
     <script>
     var _helpid = "";
     </script>
-    <script src="./lib/ueditor/zh-cn.js" type="text/javascript" defer="defer"></script>
-    <!-- <link href="./lib/ueditor/ueditor.css" type="text/css" rel="stylesheet"> -->
+    <!-- <script src="./lib/ueditor/zh-cn.js" type="text/javascript" defer="defer"></script>
+    <link href="./lib/ueditor/ueditor.css" type="text/css" rel="stylesheet"> -->
     <link charset="utf-8" rel="stylesheet" href="./ui-tips-box.css">
     <link charset="utf-8" rel="stylesheet" href="./minEmoji.css">
     <link charset="utf-8" rel="stylesheet" href="./lib/jquery/jquery.mCustomScrollbar.css">
@@ -76,7 +76,7 @@
         <script type="text/template" id="tab-nav-tpl">
             <div class="tabs">
                 <ul class="fn-clear">
-                    <li ng-repeat="pane in panes" class="{{pane.mode}}" ng-class="{selected: state.mode == pane.mode }" ng-click="selectPane(pane)">{{pane.tabTitle}}</li>
+                    <li ng-repeat="pane in panes" class="{{pane.mode}}" ng-class="{selected: state.mode == pane.mode }">{{pane.tabTitle}}</li>
                 </ul>
             </div>
             <div class="tab-content" ng-transclude></div>
@@ -84,16 +84,15 @@
         <script type="text/template" id="tab-pane-tpl">
 
             <div class="pane {{mode}}" ng-show="state.mode == mode" ng-transclude></div>
-
         </script>
         <div class="box-full show-right-pane" show-right-pane="" ng-controller="DisplayFormController">
             <div class="box-bd">
                 <!--Left start-->
                 <div class="settings">
                     <div tab-nav="" class="tab-nav ng-isolate-scope" pane-position="left">
-                        <div class="tab-content" ng-transclude="">
+                        <div class="tab-content" >
                             <tab-pane tab-title="组件" mode="createForm" class="ng-scope ng-isolate-scope">
-                                <div class="pane createForm" ng-show="state.mode == mode" ng-transclude="">
+                                <div class="pane createForm" ng-show="state.mode == mode" >
                                     <div class="fields ng-scope" id="field-box">
                                         <div class="field-groups">
                                             <h4>常规组件</h4>
@@ -104,7 +103,7 @@
                                                             <div field-drag="" data-type="textInput" class="ng-binding">单行文本框</div>
                                                         </li>
                                                     </field>
-                                                    <field type="textArea" name="多行文本框" class="text-area ng-scope">
+                                                    <!-- <field type="textArea" name="多行文本框" class="text-area ng-scope">
                                                         <li>
                                                             <div field-drag="" data-type="textArea" class="ng-binding">多行文本框</div>
                                                         </li>
@@ -168,16 +167,11 @@
                                                         <li>
                                                             <div field-drag="" data-type="splitLine" class="ng-binding">分割线</div>
                                                         </li>
-                                                    </field>
-                                                    <field type="goods" name="付费商品" class="goods ng-scope" ng-class="{&#39;disabled&#39;:state.form.goodsFieldIdx}" data-disabled="">
-                                                        <li>
-                                                            <div field-drag="" data-type="goods" class="ng-binding">付费商品</div>
-                                                        </li>
-                                                    </field>
+                                                    </field> -->
                                                 </ul>
                                             </div>
                                         </div>
-                                        <div class="field-groups">
+                                        <!-- <div class="field-groups">
                                             <h4>用户信息组件</h4>
                                             <div class="field-list">
                                                 <ul class="fn-clear">
@@ -223,7 +217,7 @@
                                                     </field>
                                                 </ul>
                                             </div>
-                                        </div>
+                                        </div> -->
                                     </div>
                                 </div>
                             </tab-pane>
@@ -235,1016 +229,36 @@
                     <div class="display-wrap">
                         <div class="form-content">
                             <div class="form-title">
-                                <div class="form-title-wrap" ng-class="{&#39;hover&#39; : state.mode == &#39;editForm&#39;}">
-                                    <div class="form-edit ng-hide" ng-show="state.mode == &#39;editForm&#39;">
-                                        <p>表单标题</p>
-                                        <input type="text" input-hint="未命名表单" ng-model="state.form.title" class="form-title-input ng-pristine ng-untouched ng-valid input-hint">
-                                        <p>表单样式</p>
-                                        <div class="multi-style-box">
-                                            <ul class="style-list default">
-                                                <li class="default" style-select="" name="default"></li>
-                                                <li class="style_1" style-select="" name="style_1"></li>
-                                                <li class="style_2" style-select="" name="style_2"></li>
-                                                <li class="style_3" style-select="" name="style_3"></li>
-                                                <li class="style_4" style-select="" name="style_4"></li>
-                                                <li class="style_5" style-select="" name="style_5"></li>
-                                                <li class="style_6" style-select="" name="style_6"></li>
-                                                <li class="style_7" style-select="" name="style_7"></li>
-                                                <li class="style_8" style-select="" name="style_8"></li>
-                                                <li class="style_9" style-select="" name="style_9"></li>
-                                            </ul>
-                                        </div>
-                                        <p>表单说明</p>
-                                        <ueditor ng-model="state.form.description" ng-attr-editor-id="form-description" placeholder="请填写描述" class="ng-pristine ng-untouched ng-valid">
-                                            <div id="form-description_0.38380582324324575" class="edui-default" style="">
-                                                <div id="edui1" class="edui-editor  edui-default" style="width: 0px; z-index: 0;">
-                                                    <div id="edui1_toolbarbox" class="edui-editor-toolbarbox edui-default">
-                                                        <div id="edui1_toolbarboxouter" class="edui-editor-toolbarboxouter edui-default">
-                                                            <div class="edui-editor-toolbarboxinner edui-default">
-                                                                <div id="edui2" class="edui-toolbar   edui-default" onselectstart="return false;" onmousedown="return $EDITORUI[&quot;edui2&quot;]._onMouseDown(event, this);" style="-webkit-user-select: none;">
-                                                                    <div id="edui3" class="edui-box edui-button edui-for-bold edui-default">
-                                                                        <div id="edui3_state" onmousedown="$EDITORUI[&quot;edui3&quot;].Stateful_onMouseDown(event, this);" onmouseup="$EDITORUI[&quot;edui3&quot;].Stateful_onMouseUp(event, this);" onmouseover="$EDITORUI[&quot;edui3&quot;].Stateful_onMouseOver(event, this);" onmouseout="$EDITORUI[&quot;edui3&quot;].Stateful_onMouseOut(event, this);" class="js-tooltip edui-default">
-                                                                            <div class="edui-button-wrap edui-default">
-                                                                                <div id="edui3_body" unselectable="on" data-tooltip="加粗" class="edui-button-body edui-default" onmousedown="return $EDITORUI[&quot;edui3&quot;]._onMouseDown(event, this);" onclick="return $EDITORUI[&quot;edui3&quot;]._onClick(event, this);">
-                                                                                    <div class="edui-box edui-icon edui-default"></div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div id="edui4" class="edui-box edui-button edui-for-italic edui-default">
-                                                                        <div id="edui4_state" onmousedown="$EDITORUI[&quot;edui4&quot;].Stateful_onMouseDown(event, this);" onmouseup="$EDITORUI[&quot;edui4&quot;].Stateful_onMouseUp(event, this);" onmouseover="$EDITORUI[&quot;edui4&quot;].Stateful_onMouseOver(event, this);" onmouseout="$EDITORUI[&quot;edui4&quot;].Stateful_onMouseOut(event, this);" class="js-tooltip edui-default">
-                                                                            <div class="edui-button-wrap edui-default">
-                                                                                <div id="edui4_body" unselectable="on" data-tooltip="斜体" class="edui-button-body edui-default" onmousedown="return $EDITORUI[&quot;edui4&quot;]._onMouseDown(event, this);" onclick="return $EDITORUI[&quot;edui4&quot;]._onClick(event, this);">
-                                                                                    <div class="edui-box edui-icon edui-default"></div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div id="edui5" class="edui-box edui-button edui-for-underline edui-default">
-                                                                        <div id="edui5_state" onmousedown="$EDITORUI[&quot;edui5&quot;].Stateful_onMouseDown(event, this);" onmouseup="$EDITORUI[&quot;edui5&quot;].Stateful_onMouseUp(event, this);" onmouseover="$EDITORUI[&quot;edui5&quot;].Stateful_onMouseOver(event, this);" onmouseout="$EDITORUI[&quot;edui5&quot;].Stateful_onMouseOut(event, this);" class="js-tooltip edui-default">
-                                                                            <div class="edui-button-wrap edui-default">
-                                                                                <div id="edui5_body" unselectable="on" data-tooltip="下划线" class="edui-button-body edui-default" onmousedown="return $EDITORUI[&quot;edui5&quot;]._onMouseDown(event, this);" onclick="return $EDITORUI[&quot;edui5&quot;]._onClick(event, this);">
-                                                                                    <div class="edui-box edui-icon edui-default"></div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div id="edui12" class="edui-box edui-button edui-for-insertimage edui-default">
-                                                                        <div id="edui12_state" onmousedown="$EDITORUI[&quot;edui12&quot;].Stateful_onMouseDown(event, this);" onmouseup="$EDITORUI[&quot;edui12&quot;].Stateful_onMouseUp(event, this);" onmouseover="$EDITORUI[&quot;edui12&quot;].Stateful_onMouseOver(event, this);" onmouseout="$EDITORUI[&quot;edui12&quot;].Stateful_onMouseOut(event, this);" class="js-tooltip edui-default">
-                                                                            <div class="edui-button-wrap edui-default">
-                                                                                <div id="edui12_body" unselectable="on" data-tooltip="多图上传" class="edui-button-body edui-default" onmousedown="return $EDITORUI[&quot;edui12&quot;]._onMouseDown(event, this);" onclick="return $EDITORUI[&quot;edui12&quot;]._onClick(event, this);">
-                                                                                    <div class="edui-box edui-icon edui-default"></div>
-                                                                                    <div class="edui-box edui-label edui-default"></div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div id="edui13" class="edui-box edui-separator  edui-default"></div>
-                                                                    <div id="edui14" class="edui-box edui-button edui-for-removeformat edui-default">
-                                                                        <div id="edui14_state" onmousedown="$EDITORUI[&quot;edui14&quot;].Stateful_onMouseDown(event, this);" onmouseup="$EDITORUI[&quot;edui14&quot;].Stateful_onMouseUp(event, this);" onmouseover="$EDITORUI[&quot;edui14&quot;].Stateful_onMouseOver(event, this);" onmouseout="$EDITORUI[&quot;edui14&quot;].Stateful_onMouseOut(event, this);" class="js-tooltip edui-default">
-                                                                            <div class="edui-button-wrap edui-default">
-                                                                                <div id="edui14_body" unselectable="on" data-tooltip="清除格式" class="edui-button-body edui-default" onmousedown="return $EDITORUI[&quot;edui14&quot;]._onMouseDown(event, this);" onclick="return $EDITORUI[&quot;edui14&quot;]._onClick(event, this);">
-                                                                                    <div class="edui-box edui-icon edui-default"></div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div id="edui15" class="edui-box edui-splitbutton edui-for-forecolor edui-default edui-colorbutton">
-                                                                        <div data-tooltip="字体颜色" id="edui15_state" onmousedown="$EDITORUI[&quot;edui15&quot;].Stateful_onMouseDown(event, this);" onmouseup="$EDITORUI[&quot;edui15&quot;].Stateful_onMouseUp(event, this);" onmouseover="$EDITORUI[&quot;edui15&quot;].Stateful_onMouseOver(event, this);" onmouseout="$EDITORUI[&quot;edui15&quot;].Stateful_onMouseOut(event, this);" class="js-tooltip edui-default">
-                                                                            <div class="edui-splitbutton-body edui-default">
-                                                                                <div id="edui15_button_body" class="edui-box edui-button-body edui-default" onclick="$EDITORUI[&quot;edui15&quot;]._onButtonClick(event, this);">
-                                                                                    <div class="edui-box edui-icon edui-default"></div>
-                                                                                    <div id="edui15_colorlump" class="edui-colorlump"></div>
-                                                                                </div>
-                                                                                <div class="edui-box edui-splitborder edui-default"></div>
-                                                                                <div class="edui-box edui-arrow edui-default" onclick="$EDITORUI[&quot;edui15&quot;]._onArrowClick();"></div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div id="edui18" class="edui-box edui-splitbutton edui-for-backcolor edui-default edui-colorbutton">
-                                                                        <div data-tooltip="背景色" id="edui18_state" onmousedown="$EDITORUI[&quot;edui18&quot;].Stateful_onMouseDown(event, this);" onmouseup="$EDITORUI[&quot;edui18&quot;].Stateful_onMouseUp(event, this);" onmouseover="$EDITORUI[&quot;edui18&quot;].Stateful_onMouseOver(event, this);" onmouseout="$EDITORUI[&quot;edui18&quot;].Stateful_onMouseOut(event, this);" class="js-tooltip edui-default">
-                                                                            <div class="edui-splitbutton-body edui-default">
-                                                                                <div id="edui18_button_body" class="edui-box edui-button-body edui-default" onclick="$EDITORUI[&quot;edui18&quot;]._onButtonClick(event, this);">
-                                                                                    <div class="edui-box edui-icon edui-default"></div>
-                                                                                    <div id="edui18_colorlump" class="edui-colorlump"></div>
-                                                                                </div>
-                                                                                <div class="edui-box edui-splitborder edui-default"></div>
-                                                                                <div class="edui-box edui-arrow edui-default" onclick="$EDITORUI[&quot;edui18&quot;]._onArrowClick();"></div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div id="edui1_toolbarmsg" class="edui-editor-toolbarmsg edui-default" style="display:none;">
-                                                            <div id="edui1_upload_dialog" class="edui-editor-toolbarmsg-upload edui-default" onclick="$EDITORUI[&quot;edui1&quot;].showWordImageDialog();">点击上传</div>
-                                                            <div class="edui-editor-toolbarmsg-close edui-default" onclick="$EDITORUI[&quot;edui1&quot;].hideToolbarMsg();">x</div>
-                                                            <div id="edui1_toolbarmsg_label" class="edui-editor-toolbarmsg-label edui-default"></div>
-                                                            <div style="height:0;overflow:hidden;clear:both;" class="edui-default"></div>
-                                                        </div>
-                                                        <div id="edui1_message_holder" class="edui-editor-messageholder edui-default" style="top: 3px; z-index: 1;"></div>
-                                                    </div>
-                                                    <div id="edui1_iframeholder" class="edui-editor-iframeholder edui-default" style="width: 0px; height: 0px; z-index: 0; overflow: hidden;">
-                                                        <iframe id="ueditor_0" width="100%" height="100%" frameborder="0" src="javascript:void(function(){document.open();document.write(&quot;&lt;!DOCTYPE html&gt;&lt;html xmlns=&#39;http://www.w3.org/1999/xhtml&#39; class=&#39;view&#39; &gt;&lt;head&gt;&lt;style type=&#39;text/css&#39;&gt;.view{padding:0;word-wrap:break-word;cursor:text;height:90%;}
-body{margin:8px;font-family:sans-serif;font-size:16px;}p{margin:5px 0;}&lt;/style&gt;&lt;link rel=&#39;stylesheet&#39; type=&#39;text/css&#39; href=&#39;http://weixin.drip.im/upload/themes/iframe.css&#39;/&gt;&lt;style&gt;body{font-size: 12px;}&lt;/style&gt;&lt;/head&gt;&lt;body class=&#39;view&#39; &gt;&lt;/body&gt;&lt;script type=&#39;text/javascript&#39;  id=&#39;_initialScript&#39;&gt;setTimeout(function(){editor = window.parent.UE.instants[&#39;ueditorInstant0&#39;];editor._setup(document);},0);var _tmpScript = document.getElementById(&#39;_initialScript&#39;);_tmpScript.parentNode.removeChild(_tmpScript);&lt;/script&gt;&lt;/html&gt;&quot;);document.close();}())" src="./saved_resource.html"></iframe>
-                                                    </div>
-                                                    <div id="edui1_bottombar" class="edui-editor-bottomContainer edui-default">
-                                                        <table class="edui-default">
-                                                            <tbody class="edui-default">
-                                                                <tr class="edui-default">
-                                                                    <td id="edui1_elementpath" class="edui-editor-bottombar edui-default">
-                                                                        <div class="edui-editor-breadcrumb">元素路径:</div>
-                                                                    </td>
-                                                                    <td id="edui1_wordcount" class="edui-editor-wordcount edui-default">字数统计</td>
-                                                                    <td id="edui1_scale" class="edui-editor-scale edui-default" style="display: none;">
-                                                                        <div class="edui-editor-icon edui-default"></div>
-                                                                    </td>
-                                                                </tr>
-                                                            </tbody>
-                                                        </table>
-                                                    </div>
-                                                    <div id="edui1_scalelayer" class="edui-default"></div>
-                                                    <div id="tooltip-box" class="edui-default"></div>
-                                                </div>
-                                            </div>
-                                            <textarea style="display: none;"></textarea>
-                                        </ueditor>
-                                    </div>
-                                    <div ng-show="state.mode != &#39;editForm&#39;">
-                                        <div class="form-basic-info" ng-click="state.mode = &#39;editForm&#39;">
-                                            <h3 class="ng-binding">未命名表单</h3>
-                                            <div class="form-desc ng-binding" ng-bind-html="state.form.description"></div>
+                                <div class="form-title-wrap">
+                                    <div>
+                                        <div class="form-basic-info" ng-click="state.mode = editForm">
+                                            <h3 class="ng-binding">表单</h3>
                                         </div>
                                     </div>
-                                    <em class="indiciator"></em>
                                 </div>
                             </div>
                             <div class="form-body">
-                                <div class="fields ng-pristine ng-untouched ng-valid ng-scope" sortable="" ng-model="state.form.fields">
-                                    <div data-field-id="" data-field-index="-1" class="field-occupy ng-hide" ng-show="state| showOccupy: -1"></div>
-                                </div>
-                                <div class="field-occupy ng-hide" ng-show="state | showInitOccupy"></div>
                             </div>
                         </div>
                         <div class="form-footer ng-scope" ng-controller="FormActionCtrl" id="form-footer">
-                            <a href="javascript:void(0);" class="ui-button-gray" ng-click="addField()">添加组件</a>
                             <a href="javascript:void(0);" class="ui-button-gray" ng-click="preview()">预览</a>
                             <a href="javascript:void(0);" class="ui-button-gold" ng-click="saveForm()">保存表单</a>
-                            <div class="success-popup ng-hide" ng-show="showSuccessPopup">
-                                <div class="modal">
-                                    <div class="modal-header">
-                                        <img src="./img/form-save-success.png">
-                                        <div class="success-text">
-                                            <p class="txt-lg">表单已成功保存</p>
-                                            <p>您可以继续操作</p>
-                                        </div>
-                                    </div>
-                                    <div class="modal-body">
-                                        <div class="modal-option">
-                                            <a class="form-action-lg" ng-click="showSuccessPopup = false"><em class="continue"></em>继续编辑</a>
-                                            <a href="http://weixin.drip.im/member/form/list" class="form-action-lg" ng-click="showSuccessPopup = false"><em class="finish"></em>完成编辑，去表单列表</a>
-                                            <div class="qrcode-box">
-                                                <img> 微信扫一扫可以查看表单
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="modal-bg"></div>
-                            </div>
                         </div>
                     </div>
                 </div>
                 <!-- ngIf: showRightPane -->
                 <div class="settings right-pane ng-scope" ng-if="showRightPane">
                     <div tab-nav="" class="tab-nav ng-isolate-scope" pane-position="right">
-                        <div class="tab-content" ng-transclude="">
+                        <div class="tab-content" >
                             <tab-pane tab-title="组件设置" mode="editField" class="ng-scope ng-isolate-scope">
-                                <div class="pane editField ng-hide" ng-show="state.mode == mode" ng-transclude="">
-                                    <div style="overflow-y: auto;overflow-x: hidden;" class="ng-scope">
-                                        <div id="field-editor-wrapper">
-                                            <div class="setting-editor filed-setting" id="editField">
-                                                <field-editor ng-transclude="">
-                                                    <no-field-editor class="ng-scope">
-                                                        <div class="no-field setting-group">
-                                                            <label class="first">未选择任何组件</label>
-                                                        </div>
-                                                    </no-field-editor>
-                                                </field-editor>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </tab-pane>
-                            <tab-pane tab-title="表单设置" mode="editForm" class="editForm ng-scope ng-isolate-scope" id="editForm">
-                                <div class="pane editForm ng-hide" ng-show="state.mode == mode" ng-transclude="">
-                                    <div class="setting-editor form-setting ng-scope">
-                                        <div class="setting-group" ng-show="!state.form.goodsFieldIdx">
-                                            <label class="first" change-show-mode=""><em class="switch"></em>填写完表单后提示页</label>
-                                            <div>
-                                                <div class="setting-sub-group">
-                                                    <check-group class="check-group fn-clear text" options="[&quot;提示信息&quot;, &quot;text&quot;, &quot;跳转到网页&quot;, &quot;url&quot;]" ng-model="state.form.successTip.notifyType">
-                                                        <a ng-repeat="option in options" ng-class="{on : &#39;on&#39;}" ng-click="setOption(option.value)" class="ng-binding ng-scope on">提示信息</a>
-                                                        <a ng-repeat="option in options" ng-class="{on : &#39;on&#39;}" ng-click="setOption(option.value)" class="ng-binding ng-scope on">跳转到网页</a>
-                                                        
-                                                    </check-group>
-                                                </div>
-                                                <div class="setting-sub-group" ng-show="state.form.successTip.notifyType == &#39;text&#39;">
-                                                    展示提示文字
-                                                    <div>
-                                                        <textarea ng-model="state.form.successTip.text" class="checked-input ng-pristine ng-untouched ng-valid ng-binding ng-valid-required" ng-required="state.form.successTip.notifyType == &#39;text&#39;" required="required">恭喜，提交成功！</textarea>
-                                                        <p>
-                                                            <input type="checkbox" ng-model="state.form.isShowData" ng-true-value="true" ng-false-value="false" class="ng-pristine ng-untouched ng-valid">显示统计结果（适用于投票表单）</p>
-                                                        <p ng-show="state.form.isShowData" class="tip show-data-tip ng-hide">数据统计会有一分钟的延迟。</p>
-                                                    </div>
-                                                </div>
-                                                <div class="setting-sub-group ng-hide" ng-show="state.form.successTip.notifyType == &#39;url&#39;">
-                                                    <input type="text" class="checked-input ng-pristine ng-untouched ng-valid ng-valid-pattern ng-valid-required" ng-model="state.form.successTip.url" placeholder="请输入网址 http://" ng-pattern="/^[a-zA-z]+:\/\/[^\s]*/" ng-required="state.form.successTip.notifyType == &#39;url&#39;">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="setting-group">
-                                            <label ng-class="{&#39;first&#39;:state.form.goodsFieldIdx}" change-show-mode=""><em class="switch"></em>表单限制</label>
-                                            <div>
-                                                <ul class="setting-option">
-                                                    
-                                                    <li ng-if="!state.hasApi || !state.hasSilverRight" class="ng-scope">
-                                                        <input type="checkbox" ng-model="state.form.limit.fans.limit" ng-click="showFansLimitSet(state.form.limit.fans,false)" class="ng-pristine ng-untouched ng-valid">仅限特定粉丝填写<em class="v-basic-icon"></em>
-                                                    </li>
-                                                    
-                                                    <li>
-                                                        <input type="checkbox" set-user-limit="" ng-checked="state.form.limit.times != -1" limit="state.form.limit.times" class="ng-isolate-scope">设置单个微信用户可填写的次数
-                                                        
-                                                    </li>
-                                                    <li>
-                                                        <input type="checkbox" ng-model="state.form.deadline.never" ng-true-value="false" ng-false-value="true" class="ng-pristine ng-untouched ng-valid">设置有效期
-                                                        <div class="check-group subsetting fn-clear time-range ng-hide" ng-hide="state.form.deadline.never">
-                                                            <p>
-                                                                开始时间：
-                                                                <ng-date-time default-time="true" ng-model="state.form.deadline.startTime" read-only="true" date-format="yyyy-mm-dd" ng-required="!state.form.deadline.never" class="ng-untouched ng-valid ng-isolate-scope ng-valid-required ng-dirty ng-valid-parse">
-                                                                    <input type="text" class="date-input" readonly="readonly" placeholder="选择日期">
-                                                                    <div class="time-container" style="position: relative;">
-                                                                        <input type="text" readonly="readonly" placeholder="选择时间">
-                                                                        <div class="time-piece" style="left: -99999px;">
-                                                                            <ul>
-                                                                                <li><a href="javascript:void(0);">00:00</a></li>
-                                                                                <li><a href="javascript:void(0);">00:30</a></li>
-                                                                                <li><a href="javascript:void(0);">01:00</a></li>
-                                                                                <li><a href="javascript:void(0);">01:30</a></li>
-                                                                                <li><a href="javascript:void(0);">02:00</a></li>
-                                                                                <li><a href="javascript:void(0);">02:30</a></li>
-                                                                                <li><a href="javascript:void(0);">03:00</a></li>
-                                                                                <li><a href="javascript:void(0);">03:30</a></li>
-                                                                                <li><a href="javascript:void(0);">04:00</a></li>
-                                                                                <li><a href="javascript:void(0);">04:30</a></li>
-                                                                                <li><a href="javascript:void(0);">05:00</a></li>
-                                                                                <li><a href="javascript:void(0);">05:30</a></li>
-                                                                                <li><a href="javascript:void(0);">06:00</a></li>
-                                                                                <li><a href="javascript:void(0);">06:30</a></li>
-                                                                                <li><a href="javascript:void(0);">07:00</a></li>
-                                                                                <li><a href="javascript:void(0);">07:30</a></li>
-                                                                                <li><a href="javascript:void(0);">08:00</a></li>
-                                                                                <li><a href="javascript:void(0);">08:30</a></li>
-                                                                                <li><a href="javascript:void(0);">09:00</a></li>
-                                                                                <li><a href="javascript:void(0);">09:30</a></li>
-                                                                                <li><a href="javascript:void(0);">10:00</a></li>
-                                                                                <li><a href="javascript:void(0);">10:30</a></li>
-                                                                                <li><a href="javascript:void(0);">11:00</a></li>
-                                                                                <li><a href="javascript:void(0);">11:30</a></li>
-                                                                                <li><a href="javascript:void(0);">12:00</a></li>
-                                                                                <li><a href="javascript:void(0);">12:30</a></li>
-                                                                                <li><a href="javascript:void(0);">13:00</a></li>
-                                                                                <li><a href="javascript:void(0);">13:30</a></li>
-                                                                                <li><a href="javascript:void(0);">14:00</a></li>
-                                                                                <li><a href="javascript:void(0);">14:30</a></li>
-                                                                                <li><a href="javascript:void(0);">15:00</a></li>
-                                                                                <li><a href="javascript:void(0);">15:30</a></li>
-                                                                                <li><a href="javascript:void(0);">16:00</a></li>
-                                                                                <li><a href="javascript:void(0);">16:30</a></li>
-                                                                                <li><a href="javascript:void(0);">17:00</a></li>
-                                                                                <li><a href="javascript:void(0);">17:30</a></li>
-                                                                                <li><a href="javascript:void(0);">18:00</a></li>
-                                                                                <li><a href="javascript:void(0);">18:30</a></li>
-                                                                                <li><a href="javascript:void(0);">19:00</a></li>
-                                                                                <li><a href="javascript:void(0);">19:30</a></li>
-                                                                                <li><a href="javascript:void(0);">20:00</a></li>
-                                                                                <li><a href="javascript:void(0);">20:30</a></li>
-                                                                                <li><a href="javascript:void(0);">21:00</a></li>
-                                                                                <li><a href="javascript:void(0);">21:30</a></li>
-                                                                                <li><a href="javascript:void(0);">22:00</a></li>
-                                                                                <li><a href="javascript:void(0);">22:30</a></li>
-                                                                                <li><a href="javascript:void(0);">23:00</a></li>
-                                                                                <li><a href="javascript:void(0);">23:30</a></li>
-                                                                                <li><a href="javascript:void(0);">24:00</a></li>
-                                                                            </ul>
-                                                                        </div>
-                                                                    </div>
-                                                                </ng-date-time>
-                                                            </p>
-                                                            <p>
-                                                                结束时间：
-                                                                <ng-date-time ng-model="state.form.deadline.endTime" read-only="true" date-format="yyyy-mm-dd" ng-required="!state.form.deadline.never" class="ng-pristine ng-untouched ng-valid ng-isolate-scope ng-valid-required">
-                                                                    <input type="text" class="date-input" readonly="readonly" placeholder="选择日期">
-                                                                    <div class="time-container" style="position: relative;">
-                                                                        <input type="text" readonly="readonly" placeholder="选择时间">
-                                                                        <div class="time-piece" style="left: -99999px;">
-                                                                            <ul>
-                                                                                <li><a href="javascript:void(0);">00:00</a></li>
-                                                                                <li><a href="javascript:void(0);">00:30</a></li>
-                                                                                <li><a href="javascript:void(0);">01:00</a></li>
-                                                                                <li><a href="javascript:void(0);">01:30</a></li>
-                                                                                <li><a href="javascript:void(0);">02:00</a></li>
-                                                                                <li><a href="javascript:void(0);">02:30</a></li>
-                                                                                <li><a href="javascript:void(0);">03:00</a></li>
-                                                                                <li><a href="javascript:void(0);">03:30</a></li>
-                                                                                <li><a href="javascript:void(0);">04:00</a></li>
-                                                                                <li><a href="javascript:void(0);">04:30</a></li>
-                                                                                <li><a href="javascript:void(0);">05:00</a></li>
-                                                                                <li><a href="javascript:void(0);">05:30</a></li>
-                                                                                <li><a href="javascript:void(0);">06:00</a></li>
-                                                                                <li><a href="javascript:void(0);">06:30</a></li>
-                                                                                <li><a href="javascript:void(0);">07:00</a></li>
-                                                                                <li><a href="javascript:void(0);">07:30</a></li>
-                                                                                <li><a href="javascript:void(0);">08:00</a></li>
-                                                                                <li><a href="javascript:void(0);">08:30</a></li>
-                                                                                <li><a href="javascript:void(0);">09:00</a></li>
-                                                                                <li><a href="javascript:void(0);">09:30</a></li>
-                                                                                <li><a href="javascript:void(0);">10:00</a></li>
-                                                                                <li><a href="javascript:void(0);">10:30</a></li>
-                                                                                <li><a href="javascript:void(0);">11:00</a></li>
-                                                                                <li><a href="javascript:void(0);">11:30</a></li>
-                                                                                <li><a href="javascript:void(0);">12:00</a></li>
-                                                                                <li><a href="javascript:void(0);">12:30</a></li>
-                                                                                <li><a href="javascript:void(0);">13:00</a></li>
-                                                                                <li><a href="javascript:void(0);">13:30</a></li>
-                                                                                <li><a href="javascript:void(0);">14:00</a></li>
-                                                                                <li><a href="javascript:void(0);">14:30</a></li>
-                                                                                <li><a href="javascript:void(0);">15:00</a></li>
-                                                                                <li><a href="javascript:void(0);">15:30</a></li>
-                                                                                <li><a href="javascript:void(0);">16:00</a></li>
-                                                                                <li><a href="javascript:void(0);">16:30</a></li>
-                                                                                <li><a href="javascript:void(0);">17:00</a></li>
-                                                                                <li><a href="javascript:void(0);">17:30</a></li>
-                                                                                <li><a href="javascript:void(0);">18:00</a></li>
-                                                                                <li><a href="javascript:void(0);">18:30</a></li>
-                                                                                <li><a href="javascript:void(0);">19:00</a></li>
-                                                                                <li><a href="javascript:void(0);">19:30</a></li>
-                                                                                <li><a href="javascript:void(0);">20:00</a></li>
-                                                                                <li><a href="javascript:void(0);">20:30</a></li>
-                                                                                <li><a href="javascript:void(0);">21:00</a></li>
-                                                                                <li><a href="javascript:void(0);">21:30</a></li>
-                                                                                <li><a href="javascript:void(0);">22:00</a></li>
-                                                                                <li><a href="javascript:void(0);">22:30</a></li>
-                                                                                <li><a href="javascript:void(0);">23:00</a></li>
-                                                                                <li><a href="javascript:void(0);">23:30</a></li>
-                                                                                <li><a href="javascript:void(0);">24:00</a></li>
-                                                                            </ul>
-                                                                        </div>
-                                                                    </div>
-                                                                </ng-date-time>
-                                                            </p>
-                                                        </div>
-                                                    </li>
-                                                    <li>
-                                                        <input type="checkbox" ng-model="state.form.total.limit" ng-true-value="true" ng-false-value="false" class="ng-pristine ng-untouched ng-valid">设置可填写的总数量
-                                                        <div class="check-group subsetting form-total fn-clear ng-hide" ng-show="state.form.total.limit">
-                                                            <input type="text" class="checked-input ng-pristine ng-untouched ng-valid ng-valid-pattern ng-valid-required" ng-model="state.form.total.number" ng-pattern="/^([1-9]\d*)$/" placeholder="请输入数量" ng-required="state.form.total.limit">
-                                                            <input type="checkbox" ng-model="state.form.total.everyday" ng-click="state.form.total.tip = (state.form.total.everyday?&quot;您来晚啦，当前填写已经满额，明天再来吧。&quot;:&quot;您来晚啦，当前填写已经满额。&quot;)" ng-true-value="true" ng-false-value="false" class="ng-pristine ng-untouched ng-valid">开启每天限制模式
-                                                            <div class="total-limit-tip">
-                                                                <p>超限后文案提示：</p>
-                                                                <textarea ng-model="state.form.total.tip" ng-init="state.form.total.tip = state.form.total.tip || &quot;您来晚啦，当前填写已经满额。&quot;" class="ng-pristine ng-untouched ng-valid"> </textarea>
-                                                            </div>
-                                                        </div>
-                                                    </li>
-                                                    <li class="not-only-weixin">
-                                                        <input type="checkbox" ng-model="state.form.notOnlyWx" ng-true-value="true" ng-false-value="false" class="ng-pristine ng-untouched ng-valid">支持表单在非微信环境下填写
-                                                        <p class="tip">非微信环境下无法控制单个用户的填写次数</p>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="setting-group">
-                                            <label change-show-mode=""><em class="switch"></em>反馈提醒</label>
-                                            <div>
-                                                <tracing-setting>
-                                                    <p>通过微信可以实时收到表单反馈的提醒，并可以随时处理。</p>
-                                                    <toggle ng-model="form.tracing.enable" ng-click="openRightPop = false;setTempTracing(form.tracing.enable);checkFormReply();" class="ng-pristine ng-untouched ng-valid ng-isolate-scope">
-                                                        <span class="trace-trigger ui-switch" ng-class="{true:&#39;on&#39;, false: &#39;&#39;}[on]">
-    <span class="plug"></span>
-                                                        </span>
-                                                    </toggle> <span ng-show="form.tracing.enable" class="ng-binding ng-hide">共0人<a ng-click="openRightPop = true">设置</a></span>
-                                                    <div class="form-reply-tips-pop ng-hide" ng-hide="!showFormReplyTipsPop">
-                                                        <div class="modal">
-                                                            <div class="modal-header">提示
-                                                                <a class="close" ng-click="showFormReplyTipsPop=false;onClose();"><em></em></a></div>
-                                                            <div class="modal-body">
-                                                                <div id="form-reply-tips">
-                                                                    <p>当前模块需调用模版消息，且行业必须为：<strong>IT科技/互联网|电子商务，IT科技/IT软件与服务</strong></p>
-                                                                    <p>检测到您当前的行业与要求不符，请确认是否更改行业？</p>
-                                                                    <div class="form-confirm">
-                                                                        <p>
-                                                                            <input type="radio" ng-click="formReplyConfirmed = true" name="industry_switch_grant" value="1" ng-model="industrySwitchGrant" class="ng-pristine ng-untouched ng-valid"> 我同意更改行业
-                                                                            <label>注意</label>
-                                                                            <strong>行业下使用的模版消息将失效，且在一个月内无法修改回原行业。</strong>
-                                                                        </p>
-                                                                        <p>
-                                                                            <input type="radio" ng-click="formReplyConfirmed = true" name="industry_switch_grant" value="2" ng-model="industrySwitchGrant" class="ng-pristine ng-untouched ng-valid"> 我不同意更改行业<span class="ui-weak">（水滴的部分功能将无法使用）<span></span></span>
-                                                                        </p>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="modal-footer">
-                                                                <a class="ui-button-gold fn-right button-disabled" ng-class="{&#39;button-disabled&#39;: !formReplyConfirmed}" ng-click="doFormReply()">确定</a>
-                                                            </div>
-                                                        </div>
-                                                        <div class="modal-bg"></div>
-                                                    </div>
-                                                    <div class="info-container pop-right-animation ng-hide" ng-show="form.tracing.enable &amp;&amp; openRightPop">
-                                                        <div class="info-wrap">
-                                                            <div>
-                                                                <div class="info-hd">
-                                                                    <h3>反馈提醒</h3>
-                                                                    <a class="close" ng-click="openRightPop = !onClose()"></a>
-                                                                </div>
-                                                                <div class="info-body">
-                                                                    <div class="info-body-wrap">
-                                                                        <div class="tracing-setting">
-                                                                            <label>设置接收反馈的管理员</label>
-                                                                            <div>
-                                                                                <span class="radio-group-item"><input type="radio" ng-model="form.tracing.mode" value="normal" class="ng-pristine ng-untouched ng-valid" name="50">常规</span>
-                                                                                <span class="radio-group-item"><input type="radio" ng-model="form.tracing.mode" value="conditional" class="ng-pristine ng-untouched ng-valid" name="51">按条件</span>
-                                                                                <div class="blur-parent">
-                                                                                    <ul class="manager-list " ng-show="form.tracing.mode === &#39;normal&#39;">
-                                                                                        <li class="header fn-clear">
-                                                                                            <span class="fn-left">微信管理员</span>
-                                                                                            <span class="add-admin fn-right">
-                          <a href="http://weixin.drip.im/member/helper/list" ng-click="reloadings[&#39;normal&#39;] = true" target="_blank">
-                            + 添加管理员
-                            <span>点击将跳转到「水滴小助手」页面，添加管理员后回到该页面继续设置。</span>
-                                                                                            </a>
-                                                                                            </span>
-                                                                                        </li>
-                                                                                        <!-- ngIf: !managers || !managers.length -->
-                                                                                        <li class="no-managers ng-scope" ng-if="!managers || !managers.length">
-                                                                                            暂无管理员，请点击右上角来添加
-                                                                                        </li>
-                                                                                        <!-- end ngIf: !managers || !managers.length -->
-                                                                                        <!-- ngRepeat: manager in managers -->
-                                                                                    </ul>
-                                                                                    <!-- ngIf: reloadings['normal'] -->
-                                                                                </div>
-                                                                                <!-- ngIf: form.tracing.mode === 'conditional' -->
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="action">
-                                                                            <a href="javascript:void(0);" class="ui-button-gold save" ng-click="saveTracing()">保存</a>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div id="info-cover"></div>
-                                                    </div>
-                                                </tracing-setting>
-                                            </div>
-                                        </div>
-                                        <div class="setting-group">
-                                            <label change-show-mode=""><em class="switch"></em>工单模式</label>
-                                            <div class="order-setting">
-                                                <div>
-                                                    <input type="checkbox" ng-model="state.form.order.record" ng-true-value="true" ng-false-value="false" class="ng-pristine ng-untouched ng-valid">可查询提交记录
-                                                    <p>1.用户通过表单右上角入口进入查询。
-                                                        <br>2.用户通过链接查看。
-                                                        <!-- ngIf: state.form.id -->
-                                                        <!-- ngIf: !state.form.id --><span ng-if="!state.form.id" class="copy-link ng-scope"><em></em>保存表单后生成链接</span>
-                                                        <!-- end ngIf: !state.form.id -->
-                                                    </p>
-                                                </div>
-                                                <div>
-                                                    <input type="checkbox" ng-model="state.form.order.open" ng-true-value="true" ng-false-value="false" ng-change="changeOrderMode(state.form.order.open,state.form)" class="ng-pristine ng-untouched ng-valid">显示工单状态<em class="v-basic-icon"></em>
-                                                    <p>适用于申请、报名、预约等服务类表单，可在表单反馈中标记状态并同步给用户。
-                                                        <a href="http://weixin.drip.im/member/form/create#"></a>
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="setting-group">
-                                            <label change-show-mode=""><em class="switch"></em>用户信息</label>
-                                            <div>
-                                                <div>
-                                                    <h4>获取填写者微信信息</h4>
-                                                    <toggle ng-model="state.form.readWeixinInfo" ng-click="hideWxAuthTip = false" ng-disabled="!state.hasApi" class="ng-pristine ng-untouched ng-valid ng-isolate-scope" disabled="disabled">
-                                                        <span class="trace-trigger ui-switch" ng-class="{true:&#39;on&#39;, false: &#39;&#39;}[on]">
-    <span class="plug"></span>
-                                                        </span>
-                                                    </toggle>
-                                                    <span class="switch ng-binding">关闭</span>
-                                                    <span ng-show="!state.hasApi" class="tips">仅支持已认证服务号</span>
-                                                    <div class="wx-auth-tip-pop ng-hide" ng-show="!state.fromComponent &amp;&amp; state.form.readWeixinInfo &amp;&amp; !hideWxAuthTip">
-                                                        <div class="modal">
-                                                            <div class="modal-header">请确认以下设置</div>
-                                                            <div class="modal-body">
-                                                                <p class="auth-tips-alert">请确认以下设置正确，否则表单将无法访问！</p>
-                                                                <div class="auth-tip">
-                                                                    <span class="auth-tip-step">1</span>
-                                                                    <div class="auth-tip-content">
-                                                                        <p class="auth-tip-header">确保已设置url和token并开启服务器配置</p>
-                                                                        <div class="auth-tip-detail">
-                                                                            <p><strong>URL:</strong>http://217624.weixin.drip.im</p>
-                                                                            <p><strong>Token:</strong></p>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="auth-tip">
-                                                                    <span class="auth-tip-step">2</span>
-                                                                    <div class="auth-tip-content">
-                                                                        <div>
-                                                                            <p>登录公众号后台，修改“OAuth2.0网页授权"</p>
-                                                                            <p>
-                                                                                将授权回调页面域名设置成
-                                                                                <span class="highlight">http://217624.weixin.drip.im</span>
-                                                                            </p>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="auth-tip-summary">
-                                                                    <p class="tip-summary-header">如何修改</p>
-                                                                    <p>登录<a target="_blank" href="https://mp.weixin.qq.com/">微信公众后台</a> 〉点击左侧最下导航“开发者中心” 〉找到接口列表中“OAuth2.0网页授权”接口 〉点击右侧修改 〉将回调域名设置填入 </p>
-                                                                </div>
-                                                            </div>
-                                                            <div class="modal-footer">
-                                                                <a href="javascript:void(0);" class="ui-button-gray fn-right" ng-click="hideWxAuthTip=true;state.form.readWeixinInfo=false">取消</a>
-                                                                <a href="javascript:void(0);" class="ui-button-gold fn-right" ng-click="hideWxAuthTip=true">我已确定设置</a>
-                                                            </div>
-                                                        </div>
-                                                        <div class="modal-bg"></div>
-                                                    </div>
-                                                </div>
-                                                <div>
-                                                    <h4>给填写者打标签</h4>
-                                                    <p class="option-description">标签可在客户管理搜索、精准营销。</p>
-                                                    <p>
-                                                        <toggle ng-disabled="!state.hasApi" ng-model="state.form.tagSyncEnable" class="ng-pristine ng-untouched ng-valid ng-isolate-scope" disabled="disabled">
-                                                            <span class="trace-trigger ui-switch" ng-class="{true:&#39;on&#39;, false: &#39;&#39;}[on]">
-    <span class="plug"></span>
-                                                            </span>
-                                                        </toggle>
-                                                        <span class="switch ng-binding">关闭</span>
-                                                        <span ng-show="!state.hasApi" class="tips">仅支持已认证服务号</span>
-                                                    </p>
-                                                    <div ng-show="state.form.tagSyncEnable" class="form-tag-sync-box ng-hide">
-                                                        <input type="text" placeholder="输入标签名称" class="checked-input ng-pristine ng-untouched ng-valid ng-valid-maxlength ng-valid-required" maxlength="10" ng-model="state.form.tag" ng-required="state.form.tagSyncEnable">
-                                                        <span class="input-count-tip ng-binding">0/10</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="setting-group ng-scope" ng-controller="CopyrightCtrl">
-                                            <label class="" change-show-mode=""><em class="switch"></em>版权设置</label>
-                                            <div>
-                                                <div ng-hide="showCopyrightEdit" class="copyright-edit-line">
-                                                    <div ng-show="state.copyright" class="ng-hide">
-                                                        <span class="ng-binding">©  版权所有</span>
-                                                        <span class="edit fn-right" ng-click="showCopyrightEdit=state.canEditCopyright;showCopyrightLimitPop=!state.canEditCopyright"><em></em>修改</span>
-                                                    </div>
-                                                    <div ng-show="!state.copyright">
-                                                        <span>自定义版权后,前台将不显示技术支持</span>
-                                                        <span class="edit fn-right" ng-click="showCopyrightEdit=state.canEditCopyright;showCopyrightLimitPop=!state.canEditCopyright"><em></em>自定义</span>
-                                                    </div>
-                                                </div>
-                                                <div ng-show="showCopyrightEdit" class="copyright-set-box ng-hide">
-                                                    <label>输入版权方名称,确定后对全局页面生效</label>
-                                                    <p class="ng-binding">
-                                                        <input ng-model="copyrightCopy" type="text" maxlength="12" class="ng-pristine ng-untouched ng-valid ng-valid-maxlength">0/12</p>
-                                                    <p class="ng-binding">预览 © 版权所有</p>
-                                                    <p>
-                                                        <a class="ui-button-gold-small" ng-click="saveCopyright();">确定</a>
-                                                        <a class="ui-button-grey" ng-click="showCopyrightEdit=false">取消</a>
-                                                    </p>
-                                                </div>
-                                                <div class="copyright-limit-pop ng-hide" ng-show="showCopyrightLimitPop">
-                                                    <div class="modal">
-                                                        <div class="modal-header">升级提示
-                                                            <a class="close" ng-click="showCopyrightLimitPop=false"><em></em></a></div>
-                                                        <div class="modal-body">
-                                                            <div id="func-forbidden-tips-box">
-                                                                <em></em>
-                                                                <h3>权限不足</h3>
-                                                                <p>请升级会员等级来继续使用，体验更强大的功能权限。</p>
-                                                            </div>
-                                                        </div>
-                                                        <div class="modal-footer"><a href="http://weixin.drip.im/buy" target="_blank" class="ui-button-gold fn-right">立即升级</a></div>
-                                                    </div>
-                                                    <div class="modal-bg"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                
                             </tab-pane>
                         </div>
                     </div>
                 </div>
                 <!-- end ngIf: showRightPane -->
-                <div>
-                    <div class="tip-popup ng-hide" ng-show="delFieldPop">
-                        <div class="modal ui-win-pop">
-                            <div class="pop-hd">
-                                <h3>提示</h3>
-                                <a href="javascript:void(0);" class="pop-close" ng-click="delFieldPop = false"><em></em></a>
-                            </div>
-                            <div class="pop-bd">
-                                <div class="pop-bd-wrap">
-                                    <img src="./img/delete-field-tip.png">
-                                    <div>
-                                        <h4>删除字段确认</h4>
-                                        <p>当前表单已有填写反馈，删除旧字段可能导致部分信息丢失，请谨慎操作。</p>
-                                        <p>
-                                            <input type="checkbox" ng-model="confirmDelField" class="ng-pristine ng-untouched ng-valid">确定删除该字段
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="pop-ft">
-                                <div class="pop-ft-wrap">
-                                    <div class="pop-action">
-                                        <a href="javascript:void(0);" class="ui-button-gold act-yes button-disabled" ng-click="confirmDeleteField()">确定</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="modal-bg"></div>
-                    </div>
-                    <div class="tip-popup wx-pay-tip ng-hide" ng-show="state.confirmWxPay">
-                        <div class="modal ui-win-pop">
-                            <div class="pop-hd">
-                                <h3>提示</h3>
-                                <a href="javascript:void(0);" class="pop-close" ng-click="state.confirmWxPay = false"><em></em></a>
-                            </div>
-                            <div class="pop-bd">
-                                <div class="pop-bd-wrap">
-                                    <img class="block" src="./img/tip-bulb.png">
-                                    <div>
-                                        <h3>仅限认证服务号使用</h3>
-                                        <p>因接口限制，当前仅限开通了微信支付的服务号使用。</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="pop-ft">
-                                <div class="pop-ft-wrap">
-                                    <div class="pop-action">
-                                        <a href="javascript:void(0);" class="ui-button-gold act-yes" ng-click="state.confirmWxPay = false">确定</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="modal-bg"></div>
-                    </div>
-                    <div class="tip-popup wx-pay-tip ng-hide" ng-show="state.limitVerified">
-                        <div class="modal ui-win-pop">
-                            <div class="pop-hd">
-                                <h3>提示</h3>
-                                <a href="javascript:void(0);" class="pop-close" ng-click="state.limitVerified = false"><em></em></a>
-                            </div>
-                            <div class="pop-bd">
-                                <div class="pop-bd-wrap">
-                                    <img class="block" src="./img/tip-bulb.png">
-                                    <div>
-                                        <h3>仅限认证服务号使用</h3>
-                                        <p>因微信接口限制，当前仅限认证服务号使用。</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="pop-ft">
-                                <div class="pop-ft-wrap">
-                                    <div class="pop-action">
-                                        <a href="javascript:void(0);" class="ui-button-gold act-yes" ng-click="state.limitVerified = false">确定</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="modal-bg"></div>
-                    </div>
-                    <div class="tip-popup wx-pay-tip ng-hide" ng-show="state.limitSilver">
-                        <div class="modal ui-win-pop">
-                            <div class="pop-hd">
-                                <h3>提示</h3>
-                                <a href="javascript:void(0);" class="pop-close" ng-click="state.limitSilver = false"><em></em></a>
-                            </div>
-                            <div class="pop-bd">
-                                <div class="pop-bd-wrap">
-                                    <img class="block" src="./img/tip-bulb.png">
-                                    <div>
-                                        <h3>仅限专业版及以上会员使用</h3>
-                                        <p>请升级会员来开启使用，并确定已开通微信支付。</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="pop-ft">
-                                <div class="pop-ft-wrap">
-                                    <div class="pop-action">
-                                        <a href="http://weixin.drip.im/buy" target="_blank" class="ui-button-gold act-yes">立即升级</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="modal-bg"></div>
-                    </div>
-                    <div class="tip-popup wx-pay-tip ng-hide" ng-show="state.limitFree">
-                        <div class="modal ui-win-pop">
-                            <div class="pop-hd">
-                                <h3>提示</h3>
-                                <a href="javascript:void(0);" class="pop-close" ng-click="state.limitFree = false"><em></em></a>
-                            </div>
-                            <div class="pop-bd">
-                                <div class="pop-bd-wrap">
-                                    <img class="block" src="./img/tip-bulb.png">
-                                    <div>
-                                        <h3>权限不足</h3>
-                                        <p>该功能需要专业版或以上会员才可使用，请升级。</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="pop-ft">
-                                <div class="pop-ft-wrap">
-                                    <div class="pop-action">
-                                        <a href="http://weixin.drip.im/buy" target="_blank" class="ui-button-gold act-yes">立即升级</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="modal-bg"></div>
-                    </div>
-                    <div class="tip-popup small pay-configuring-tip ng-hide" ng-show="state.payConfiguring">
-                        <div class="modal ui-win-pop">
-                            <div class="pop-hd">
-                                <h3>提示</h3>
-                                <a href="javascript:void(0);" class="pop-close" ng-click="state.limitSilver = false"><em></em></a>
-                            </div>
-                            <div class="pop-bd">
-                                <div class="pop-bd-wrap">
-                                    <div>
-                                        <p>是否已成功配置微信支付</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="pop-ft">
-                                <div class="pop-ft-wrap">
-                                    <div class="pop-action">
-                                        <a href="javascript:;" class="ui-button-gold act-yes" ng-click="checkPayConfigured()">已配置</a>
-                                        <a href="javascript:;" class="ui-button-gray act-cancel" ng-click="checkPayConfigured()">稍后配置</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="modal-bg"></div>
-                    </div>
-                    <fans-limit-set fans="state.form.limit.fans" form="state.form" switch="state.fansLimitSetting" class="ng-isolate-scope">
-                        <div class="tip-popup fans-limit-set ng-hide" ng-show="switch">
-                            <div class="modal ui-win-pop">
-                                <div class="pop-hd">
-                                    <h3 ng-show="step == &#39;set&#39;">设置特定粉丝填写</h3>
-                                    <h3 ng-show="step == &#39;label&#39;" class="ng-hide">请选择标签</h3>
-                                    <h3 ng-show="step == &#39;group&#39;" class="ng-hide">请选择分组</h3>
-                                    <a href="javascript:void(0);" class="pop-close" ng-click="cancelFansSet();"><em></em></a>
-                                </div>
-                                <div class="pop-bd fn-clear" ng-class="{&#39;filter&#39;:step != &#39;set&#39;}">
-                                    <div class="pop-bd-wrap">
-                                        <div class="field">
-                                            <label>填写范围</label>
-                                            <div class="fans-range fn-clear">
-                                                <div class="all selected" ng-class="{&#39;selected&#39;:fans.range == &#39;all&#39;}" ng-click="fans.range = &#39;all&#39;">
-                                                    <img ng-show="fans.range == &#39;all&#39;" src="./img/heart-active-icon.png">
-                                                    <img ng-show="fans.range != &#39;all&#39;" src="./img/heart-icon.png" class="ng-hide"> 所有粉丝
-                                                </div>
-                                                <div class="part" ng-class="{&#39;selected&#39;:fans.range == &#39;part&#39;}" ng-click="fans.range = &#39;part&#39;">
-                                                    <img ng-show="fans.range == &#39;part&#39;" src="./img/target-active-icon.png" class="ng-hide">
-                                                    <img ng-show="fans.range != &#39;part&#39;" src="./img/target-icon.png"> 指定粉丝
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="fields-wrap" ng-show="fans.range == &#39;all&#39;">
-                                            <div class="field">
-                                                <label>非粉丝进入表单后提示</label>
-                                                <p>
-                                                    <input type="radio" ng-model="fans.guide" ng-value="false" class="ng-pristine ng-untouched ng-valid" name="33" value="false">无权查看
-                                                </p>
-                                                <p>
-                                                    <input type="radio" ng-model="fans.guide" ng-value="true" class="ng-pristine ng-untouched ng-valid" name="34" value="true">引导先成为粉丝
-                                                </p>
-                                            </div>
-                                            <!-- ngIf: fans.guide -->
-                                        </div>
-                                        <div class="fields-wrap ng-hide" ng-show="fans.range == &#39;part&#39;">
-                                            <div class="field">
-                                                <span>
-              <input type="radio" ng-model="fans.filter" value="group" class="ng-pristine ng-untouched ng-valid" name="35">按组筛选
-            </span>
-                                                <span>
-              <input type="radio" ng-model="fans.filter" value="label" class="ng-pristine ng-untouched ng-valid" name="36">按标签
-            </span>
-                                            </div>
-                                            <div class="field">
-                                                <div class="range-box empty" ng-click="step = &#39;group&#39;" ng-show="fans.filter == &#39;group&#39; &amp;&amp; !fans.groups.length">
-                                                    + 添加组
-                                                </div>
-                                                <div class="range-box ng-binding ng-hide" ng-click="step = &#39;group&#39;" ng-show="fans.filter == &#39;group&#39; &amp;&amp; fans.groups.length">
-                                                    已选中0个组 <span ng-show="fans.groupFansNum" class="ng-binding ng-hide">，共0位粉丝</span><em class="edit"></em>
-                                                </div>
-                                                <div class="range-box empty ng-hide" ng-click="step = &#39;label&#39;" ng-show="fans.filter == &#39;label&#39; &amp;&amp; !fans.labels.length ">
-                                                    + 添加标签
-                                                </div>
-                                                <div class="range-box ng-binding ng-hide" ng-click="step = &#39;label&#39;" ng-show="fans.filter == &#39;label&#39; &amp;&amp; fans.labels.length">
-                                                    已选中0个标签 <span ng-show="fans.labelFansNum" class="ng-binding ng-hide">，共0位粉丝</span><em class="edit"></em>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="filter-box ng-hide" ng-show="step == &#39;label&#39;">
-                                        <div ng-hide="loading">
-                                            <div class="overview ng-hide" ng-show="fans.labels.length">
-                                                已选中 <span class="ng-binding">0个</span> 标签
-                                            </div>
-                                            <ul ng-show="customers.labels.length" class="ng-hide">
-                                                
-                                            </ul>
-                                            <div class="empty" ng-show="!customers.labels.length">当前暂无标签，无法通过该方式筛选粉丝</div>
-                                        </div>
-                                        <div class="loading ng-hide" ng-show="loading">
-                                            正在加载数据...
-                                        </div>
-                                    </div>
-                                    <div class="filter-box ng-hide" ng-show="step == &#39;group&#39; ">
-                                        <div ng-hide="loading">
-                                            <div class="overview ng-hide" ng-show="fans.groups.length">
-                                                已选中 <span class="ng-binding">0个</span> 分组
-                                            </div>
-                                            <ul ng-show="customers.groups.length" class="ng-hide">
-                                                
-                                            </ul>
-                                            <div class="empty" ng-show="!customers.groups.length">当前暂无分组，无法通过该方式筛选粉丝</div>
-                                        </div>
-                                        <div class="loading ng-hide" ng-show="loading">
-                                            正在加载数据...
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="pop-ft">
-                                    <div class="pop-ft-wrap">
-                                        <div class="pop-action">
-                                            <a href="javascript:;" class="ui-button-gray ng-hide" ng-show="step != &#39;set&#39; " ng-click="step = &#39;set&#39; ">返回上一步</a>
-                                            <a href="javascript:;" class="ui-button-gold act-yes" ng-click="confirmFansSet();">确定</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="modal-bg"></div>
-                        </div>
-                    </fans-limit-set>
-                </div>
             </div>
         </div>
-        <script id="tracing-setting-tpl" type="text/template">
-            <p>通过微信可以实时收到表单反馈的提醒，并可以随时处理。</p>
-            <toggle ng-model="form.tracing.enable" ng-click="openRightPop = false;setTempTracing(form.tracing.enable);checkFormReply();"></toggle> <span ng-show="form.tracing.enable">共{{managersCount}}人<a ng-click="openRightPop = true">设置</a></span>
-            <div class="form-reply-tips-pop" ng-hide="!showFormReplyTipsPop">
-                <div class="modal">
-                    <div class="modal-header">提示
-                        <a class="close" ng-click="showFormReplyTipsPop=false;onClose();"><em></em></a></div>
-                    <div class="modal-body">
-                        <div id="form-reply-tips">
-                            <p>当前模块需调用模版消息，且行业必须为：<strong>IT科技/互联网|电子商务，IT科技/IT软件与服务</strong></p>
-                            <p>检测到您当前的行业与要求不符，请确认是否更改行业？</p>
-                            <div class="form-confirm">
-                                <p>
-                                    <input type="radio" ng-click="formReplyConfirmed = true" name="industry_switch_grant" value="1" ng-model="industrySwitchGrant" /> 我同意更改行业
-                                    <label>注意</label>
-                                    <strong>行业下使用的模版消息将失效，且在一个月内无法修改回原行业。</strong>
-                                </p>
-                                <p>
-                                    <input type="radio" ng-click="formReplyConfirmed = true" name="industry_switch_grant" value="2" ng-model="industrySwitchGrant" /> 我不同意更改行业<span class="ui-weak">（水滴的部分功能将无法使用）<span></p>
-        </div>
-      </div>
-    </div>
-    <div class="modal-footer">
-      <a class="ui-button-gold fn-right" ng-class="{'button-disabled': !formReplyConfirmed}" ng-click="doFormReply()">确定</a>
-    </div>
-  </div>
-  <div ng-cloak class="modal-bg"></div>
-</div>
-
-    <div class="info-container pop-right-animation" ng-show="form.tracing.enable && openRightPop" >
-      <div class="info-wrap">
-        <div >
-          <div class="info-hd">
-            <h3>反馈提醒</h3>
-            <a class="close" ng-click="openRightPop = !onClose()"></a>
-          </div>
-          <div class="info-body">
-            <div class="info-body-wrap">
-              <div class="tracing-setting">
-                <label>设置接收反馈的管理员</label>
-                <div>
-                  <span class="radio-group-item"><input type="radio" ng-model="form.tracing.mode" value="normal">常规</span>
-                                    <span class="radio-group-item"><input type="radio" ng-model="form.tracing.mode" value="conditional">按条件</span>
-                                    <div class="blur-parent">
-                                        <ul class="manager-list {{reloadings['normal']}}" ng-show="form.tracing.mode === 'normal'">
-                                            <li class="header fn-clear">
-                                                <span class="fn-left">微信管理员</span>
-                                                <span class="add-admin fn-right">
-                          <a href="http://weixin.drip.im/member/helper/list" ng-click="reloadings['normal'] = true" target="_blank">
-                            + 添加管理员
-                            <span>点击将跳转到「水滴小助手」页面，添加管理员后回到该页面继续设置。</span>
-                                                </a>
-                                                </span>
-                                            </li>
-                                            <li class="no-managers" ng-if="!managers || !managers.length">
-                                                暂无管理员，请点击右上角来添加
-                                            </li>
-                                            <li class="manager-item" ng-repeat="manager in managers">
-                                                <span class="fn-left">
-                          <img src="{{manager.headimgurl}}" width="24px" height="24px" />
-                          <span class="nickname">{{manager.nickname}}</span>
-                                                </span>
-                                                <span class="fn-right">
-                          <input type="checkbox" ng-model="form.tracing.normal.setting[manager.openid]">接收表单提醒
-                        </span>
-                                            </li>
-                                        </ul>
-                                        <div class="blur-cover" ng-if="reloadings['normal']">
-                                            <div class="cover"></div>
-                                            <a class="ui-button-gold reload-manager-button" ng-click="reloadManagers(false, reloadings, 'normal')">我已添加管理员
-                      </a>
-                                        </div>
-                                    </div>
-                                    <div class="conditional-setting-box" ng-if="form.tracing.mode === 'conditional'">
-                                        <div class="selects" ng-if="(form.fields | filter: isConditionalField).length > 0">
-                                            <label>请选择表单中的一个单选元素</label>
-                                            <select ng-model="form.tracing.conditional.fieldId" ng-options="f.fieldId as f.label for f in form.fields | filter: isConditionalField" ng-required="form.tracing.mode === 'conditional'">
-                                                <option value="">请选择</option>
-                                            </select>
-                                        </div>
-                                        <div class="options" ng-if="(form.fields | filter: isConditionalField).length > 0">
-                                            <ul>
-                                                <li ng-repeat="opt in optionsOf(form.tracing.conditional.fieldId)" ng-value="{{opt.value}}">
-                                                    <div><span>如果用户选择:</span> {{opt.label}}
-                                                    </div>
-                                                    <div><span>收到通知的是:</span>
-                                                        <span class="selected-manager" ng-hide="isOptionManagerListOpen(opt)" ng-repeat="m in (checkedManagers(form.tracing.conditional.setting['fieldId' + form.tracing.conditional.fieldId]['optionValue' + opt.value]))">{{m.nickname}}</span>
-                                                        <a class="switch" ng-click="showOptionManagerList(opt)" ng-show="!isOptionManagerListOpen(opt)" ng-disabled="hasOptionManagerList">设置</a>
-                                                        <div class="blur-parent">
-                                                            <ul class="manager-list {{reloadings[opt.value]}}" ng-show="isOptionManagerListOpen(opt)">
-                                                                <li class="header fn-clear">
-                                                                    <span class="fn-left">微信管理员</span>
-                                                                    <span class="fn-right">
-                                    <a href="http://weixin.drip.im/member/helper/list" ng-click="reloadings[opt.value] = true"target="_blank">
-                                      + 添加管理员
-                                      <span>点击将跳转到「水滴小助手」页面，添加管理员后回到该页面继续设置。</span>
-                                                                    </a>
-                                                                    </span>
-                                                                </li>
-                                                                <li class="no-managers" ng-if="!managers || !managers.length">
-                                                                    暂无管理员，请点击右上角来添加
-                                                                </li>
-                                                                <li class="manager-item fn-clear" ng-repeat="manager in managers">
-                                                                    <span class="fn-left">
-                                    <img src="{{manager.headimgurl}}" width="24px" height="24px" />
-                                    <span class="nickname">{{manager.nickname}}</span>
-                                                                    </span>
-                                                                    <span class="fn-right">
-                                    <input type="checkbox"
-                                           ng-model="conditionalSetting['fieldId' + form.tracing.conditional.fieldId]['optionValue' + opt.value][manager.openid]">接收表单提醒
-                                  </span>
-                                                                </li>
-                                                                <li class="manager-item actions">
-                                                                    <a class="ui-button-gold-small" ng-click="confirmConditionalTracing()">确定</a>
-                                                                    <a class="ui-button-gray-small" ng-click="cancelConditionalTracing()">取消</a>
-                                                                </li>
-                                                            </ul>
-                                                            <div class="blur-cover" ng-if="reloadings[opt.value]">
-                                                                <div class="cover"></div>
-                                                                <a class="ui-button-gold reload-manager-button" ng-click="reloadManagers(false, reloadings, opt)">我已添加管理员</a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div class="tips-box" ng-if="(form.fields | filter: isConditionalField).length <= 0">
-                                            表单中没有单选组件（图片单选除外），无法设置。
-                                        </div>
-                                    </div>
-                            </div>
-                        </div>
-                        <div class="action">
-                            <a href="javascript:void(0);" class="ui-button-gold save" ng-click="saveTracing()">保存</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-    </div>
-    <div id="info-cover"></div>
-    </div>
-    </script>
     <script type="text/template" id="text-input-tpl">
         <div class="field-group">
             <label>{{field.label || '未命名标题'}}</label>
@@ -1672,7 +686,6 @@ body{margin:8px;font-family:sans-serif;font-size:16px;}p{margin:5px 0;}&lt;/styl
         <div class="setting-group">
             <label class="first">富文本内容</label>
             <div>
-                // <ueditor ng-model="field.richContent" ng-attr-editor-id='rich-text-{{field.fieldId}}'></ueditor>
             </div>
         </div>
     </script>
@@ -1894,20 +907,20 @@ body{margin:8px;font-family:sans-serif;font-size:16px;}p{margin:5px 0;}&lt;/styl
             <span ng-show="!showMinSelect">最少选择项数</span>
             <span ng-show="showMinSelect">最少选择</span>
             <span ng-show="showMinSelect">
-      <select  ng-model="validator.minSelect" ng-options="c as (c + '项') for c in [] | range:min:(validator.maxSelect||max)">
-        <option value="">项数</option>
-      </select>
-    </span>
+              <select  ng-model="validator.minSelect" ng-options="c as (c + '项') for c in [] | range:min:(validator.maxSelect||max)">
+                <option value="">项数</option>
+              </select>
+            </span>
         </li>
         <li>
             <input type="checkbox" ng-model="showMaxSelect" ng-checked="showMaxSelect" ng-change="validator.maxSelect = showMaxSelect ? validator.maxSelect : undefined">
             <span ng-show="!showMaxSelect">最多选择项数</span>
             <span ng-show="showMaxSelect">最多选择</span>
             <span ng-show="showMaxSelect">
-      <select ng-model="validator.maxSelect" ng-options="c as (c + '项') for c in [] | range:(validator.minSelect||min):max">
-        <option value="">项数</option>
-      </select>
-    </span>
+                <select ng-model="validator.maxSelect" ng-options="c as (c + '项') for c in [] | range:(validator.minSelect||min):max">
+                    <option value="">项数</option>
+                </select>
+            </span>
         </li>
     </script>
     <script type="text/template" id="location-setting-tpl">
@@ -1955,11 +968,12 @@ body{margin:8px;font-family:sans-serif;font-size:16px;}p{margin:5px 0;}&lt;/styl
         </div>
     </script>
     <script type="text/template" id="check-group-tpl">
+
         <a ng-repeat="option in options" ng-class="{on : 'on'}" ng-click="setOption(option.value)">{{option.label}}</a>
     </script>
     <script type="text/template" id="toggle-tpl">
         <span class="trace-trigger ui-switch" ng-class="{true:'on', false: ''}[on]">
-    <span class="plug"></span>
+            <span class="plug"></span>
         </span>
     </script>
     <script type="text/template" id="fans-limit-set-tpl">
@@ -2080,8 +1094,8 @@ body{margin:8px;font-family:sans-serif;font-size:16px;}p{margin:5px 0;}&lt;/styl
         </div>
     </script>
     <script src="./location_v2.js"></script>
-    <script src="./lib/ueditor/ueditor.config.js"></script>
-    <script src="./lib/ueditor/ueditor.all.js"></script>
+    <!--<script src="./lib/ueditor/ueditor.config.js"></script>
+    <script src="./lib/ueditor/ueditor.all.js"></script>-->
     <script src="./lib/jquery/jquery-1.9.0.js"></script>
     <script src="./ZeroClipboard.min.js"></script>
     <script src="./lib/angular/angular.min.js"></script>
@@ -2093,9 +1107,9 @@ body{margin:8px;font-family:sans-serif;font-size:16px;}p{margin:5px 0;}&lt;/styl
     <script src="./create.js"></script>
     <script src="./fields.js"></script>
     <script>
-    seajs.use("http://wx-static.drip.im/js/app.js?t=1480979120", function(app) {
-        app.init('member/global');
-    });
+        seajs.use("http://wx-static.drip.im/js/app.js", function(app) {
+            app.init('member/global');
+        });
     </script>
     </div>
     <div id="info-container">
@@ -2105,13 +1119,13 @@ body{margin:8px;font-family:sans-serif;font-size:16px;}p{margin:5px 0;}&lt;/styl
         <div class="info-wrap"></div>
     </div>
     <script>
-    var _hmt = _hmt || [];
-    (function() {
-        var hm = document.createElement("script");
-        hm.src = "//hm.baidu.com/hm.js?5438c2334f2a1423dc50b05a2bf2faf0";
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(hm, s);
-    })();
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?5438c2334f2a1423dc50b05a2bf2faf0";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
     </script>
     <div class="datepicker dropdown-menu ui-calendar" style="display: none;">
         <div class="datepicker-days" style="display: block;">
@@ -2353,5 +1367,4 @@ body{margin:8px;font-family:sans-serif;font-size:16px;}p{margin:5px 0;}&lt;/styl
         </object>
     </div>
 </body>
-
 </html>
