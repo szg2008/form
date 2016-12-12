@@ -92,7 +92,7 @@ formModule.service('Form',['$rootScope', 'AppState', '$http',function(rootScope,
     },
     checkPaySucceessTpl:function(){
       http.get('/member/form/check-pay-success-tpl').success(function(rs) {
-        // console.log(rs);
+        
       });
     },
     checkFieldSettingErrors: function() {
@@ -463,7 +463,7 @@ formModule.factory('AppState', function() {
 
 formModule.directive("field", function(){
   return {
-    restrict:"E",
+    restrict:"E",//元素
     scope: true,
     template : '<li><div field-drag data-type="{{type}}">{{name}}</div></li>',
     link: function ( scope, element, attrs ,controller) {

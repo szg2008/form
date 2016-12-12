@@ -416,7 +416,7 @@ igender .field-group input[type="radio"]:last-child{
 }
 .move-tips em {
   display: inline-block;
-  background: url(../../../img/member/single/plugin/move-tips-icon.png) no-repeat;
+  background: url(../img/member/single/plugin/move-tips-icon.png) no-repeat;
   width:169px;
   height:70px;
   margin-bottom:15px;
@@ -578,17 +578,17 @@ igender .field-group input[type="radio"]:last-child{
   margin-left: 14px;
 }
 .field-control a.copy{
-  background: url(../../../img/member/single/form/field-copy.png) no-repeat;
+  background: url(./img/field-copy.png) no-repeat;
   background-position: bottom left;
 }
 .field-control a.delete{
-  background: url(../../../img/member/single/form/field-delete.png) no-repeat;
+  background: url(./img/field-delete.png) no-repeat;
   background-position: bottom left;
 }
 .field-wrapper .field-sort em{
   width: 16px;
   height: 22px;
-  background: url(../../../img/member/single/form/field-drag.png);
+  background: url(./img/field-drag.png);
   display:inline-block;
 }
 .field-wrapper .field-group textarea[type="text"],
@@ -774,7 +774,7 @@ input.ng-untouched.ng-invalid, .ng-untouched.ng-invalid {
   width: 62px;
   height: 51px;
   display: inline-block;
-  background: url(../../../img/member/single/form/upload-img.png) no-repeat;
+  background: url(../img/member/single/form/upload-img.png) no-repeat;
   margin-top: 26px;
 }
 .uploader:after{
@@ -899,7 +899,7 @@ input.ng-untouched.ng-invalid, .ng-untouched.ng-invalid {
   height: 16px;
   display: inline-block;
   background-position: 18px 11px;
-  background: transparent url("../../../img/member/sprites/message/textarea-icons.png") no-repeat scroll 0% 0%;
+  background: transparent url("../img/member/sprites/message/textarea-icons.png") no-repeat scroll 0% 0%;
 }
 .copyright-set-box,
 div.copyright-edit-line {
@@ -927,7 +927,7 @@ div.copyright-edit-line {
   cursor: pointer;
 }
 .modal-header a.close em {
-  background: transparent url("../../../img/common/sprites/ui-pop-box-close.png") no-repeat scroll 15px 13px;
+  background: transparent url("../img/common/sprites/ui-pop-box-close.png") no-repeat scroll 15px 13px;
   width: 50px;
   height: 40px;
   position: absolute;
@@ -1012,14 +1012,14 @@ div.copyright-edit-line {
   display: block;
   width: 62px;
   height: 64px;
-  background: url(../../../img/member/single/form/continue.png) no-repeat;
+  background: url(../img/member/single/form/continue.png) no-repeat;
   margin: 30px auto 10px auto;
 }
 .form-action-lg .finish{
   display: block;
   width: 56px;
   height: 64px;
-  background: url(../../../img/member/single/form/finish.png) no-repeat;
+  background: url(../img/member/single/form/finish.png) no-repeat;
   margin: 30px auto 10px auto;
 }
 a.form-action-lg:hover {
@@ -1245,7 +1245,7 @@ ng-date-time .time-container .time-piece {
   display: inline-block;
   width: 11px;
   height: 12px;
-  background: url(../../../img/member/single/form/control-edit.png);
+  background: url(../img/member/single/form/control-edit.png);
   vertical-align: middle;
   margin-right: 6px;
 }
@@ -1262,7 +1262,7 @@ ng-date-time .time-container .time-piece {
   line-height: 40px;
 }
 .share-setting .header em {
-  background: url(../../../img/common/sprites/ui-pop-box-close.png) 15px 13px no-repeat;
+  background: url(../img/common/sprites/ui-pop-box-close.png) 15px 13px no-repeat;
   width: 50px;
   height: 40px;
   position: absolute;
@@ -1324,11 +1324,11 @@ ng-date-time .time-container .time-piece {
   display: inline-block;
   width: 16px;
   height: 16px;
-  background: url(../../../img/member/single/form/star.png) no-repeat;
+  background: url(../img/member/single/form/star.png) no-repeat;
   margin: 0 0 -3px 3px;
 }
 .setting-group label em.switch{
-  background: url(../../../img/member/sprites/form/arrow.png) no-repeat;
+  background: url(../img/member/sprites/form/arrow.png) no-repeat;
   background-position: 0px 5px;
   width: 7px;
   height: 10px;
@@ -1357,7 +1357,7 @@ ng-date-time .time-container .time-piece {
   width: 51px;
 }
 .assist-tip-pop .modal .modal-close em {
-  background: url(../../../img/common/sprites/ui-pop-box-close.png) 15px 13px no-repeat;
+  background: url(../img/common/sprites/ui-pop-box-close.png) 15px 13px no-repeat;
   width: 50px;
   height: 40px;
   position: absolute;
@@ -1808,7 +1808,7 @@ span.selected-manager {
   display: inline-block;
   width:22px;
   height:22px;
-  background:url(../../../img/member/sprites/ticket/ticket-pic-icons.png) 0 0 no-repeat;
+  background:url(../img/member/sprites/ticket/ticket-pic-icons.png) 0 0 no-repeat;
 }
 .setting-group .pic-uploader > img{
   vertical-align: top;
@@ -1849,7 +1849,7 @@ pattern-setting .setting-group{
   width: 27px;
   height: 28px;
   display: inline-block;
-  background: url(../../../img/member/single/form/form-drip-logo.png) no-repeat;
+  background: url(../img/member/single/form/form-drip-logo.png) no-repeat;
   vertical-align: middle;
 }
 #header .account-box {
@@ -1862,10 +1862,10 @@ pattern-setting .setting-group{
 }
 #header .account-box span.email{
   color: #b4b4b4;
-  background: url(../../../img/member/sprites/icon-all.png) right -56px no-repeat;
+  background: url(../img/member/sprites/icon-all.png) right -56px no-repeat;
 }
 #header .setting{
-  background: url(../../../img/member/single/wx-icon-grey.png) 6px 5px no-repeat;
+  background: url(../img/member/single/wx-icon-grey.png) 6px 5px no-repeat;
 }
 #header .notify-trigger,
 #header .setting{
@@ -1911,7 +1911,7 @@ html.move-mode{
 }
 .back-box a.form-rule em{
   display: inline-block;
-  background: url(../../../img/member/single/form/rules-icon.png) no-repeat;
+  background: url(../img/member/single/form/rules-icon.png) no-repeat;
   width: 14px;
   height: 14px;
   margin: 0 7px -3px 0;
@@ -1978,7 +1978,7 @@ html.move-mode{
   content: "";
   width: 23px;
   height: 18px;
-  background-image: url(../../../img/member/single/form/style-hover.png);
+  background-image: url(../img/member/single/form/style-hover.png);
   display: inline-block;
   margin: 9px 0 0 6px;
 }
@@ -1995,7 +1995,7 @@ html.move-mode{
   content: "";
   width: 23px;
   height: 18px;
-  background-image: url(../../../img/member/single/form/style-checked.png);
+  background-image: url(../img/member/single/form/style-checked.png);
   display: inline-block;
   margin: 9px 0 0 6px;
 }
@@ -2157,7 +2157,7 @@ html.move-mode{
 .order-setting > div .copy-link em{
   width: 11px;
   height: 11px;
-  background: url(../../../img/member/single/form/form-link.png);
+  background: url(../img/member/single/form/form-link.png);
 }
 .order-setting > div .copy-link{
   text-decoration: none;
@@ -2292,7 +2292,7 @@ goods-setting p.show-stock{
 .item-setting .sku span.stock-edit em{
   width: 7px;
   height: 7px;
-  background: url(../../../img/member/single/form/edit-icon.png);
+  background: url(../img/member/single/form/edit-icon.png);
   display:inline-block;
   vertical-align: middle;
   margin: 0 0 2px 5px;
@@ -2402,7 +2402,7 @@ a.pay-configured:hover{
   display: inline-block;
   vertical-align: middle;
   margin: 0 0 2px 2px;
-  background: url(../../../img/member/single/form/v-basic-icon.png);
+  background: url(../img/member/single/form/v-basic-icon.png);
   width: 13px;
   height: 13px;
   cursor: pointer;
@@ -2622,7 +2622,7 @@ a.pay-configured:hover{
   display: inline-block;
   width: 9px;
   height: 9px;
-  background: url(../../../img/member/single/form/edit-range.png);
+  background: url(../img/member/single/form/edit-range.png);
   vertical-align: middle;
   margin-left: 18px;
 }

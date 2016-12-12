@@ -99,9 +99,6 @@
                                             <div class="field-list">
                                                 <ul class="fn-clear">
                                                     <field type="textInput" name="单行文本框" class="text-input ng-scope">
-                                                        <li>
-                                                            <div field-drag="" data-type="textInput" class="ng-binding">单行文本框</div>
-                                                        </li>
                                                     </field>
                                                     <!-- <field type="textArea" name="多行文本框" class="text-area ng-scope">
                                                         <li>
@@ -238,26 +235,64 @@
                                 </div>
                             </div>
                             <div class="form-body">
+                                <div class="fields" sortable ng-model="state.form.fields">
+                                <div ng-cloak data-field-id="{{field.fieldId}}"
+                                     data-field-index="-1"
+                                     class="field-occupy"
+                                     ng-show="state| showOccupy: -1">
+                                </div>
+                                <div ng-repeat='field in state.form.fields' sortable-item  ng-class="{'last-field': $last}">
+                                    <div class="field-wrapper {{field.align}}"
+                                       ng-click="selectField($event, field)"
+                                       id="field_{{field.fieldId}}"
+                                       ng-class="{'hover': state.editField == field && state.mode == 'editField'}">
+                                    <field-item type="{{field.fieldType}}" ></field-item>
+                                    <div class="field-sort" >
+                                      <em sortable-item-handle></em>
+                                    </div>
+                                    <div class="field-control">
+                                      <a class="copy" ng-if="field.fieldType != 'goods'" ng-click='copyField(field,$index);$event.stopPropagation();'>复制</a>
+                                      <a class="delete" ng-click="deleteField(field,$index);$event.stopPropagation();">删除</a>
+                                    </div>
+                                    <em class="indiciator"></em>
+                                    </div>
+                                    <div ng-cloak data-field-id="{{field.fieldId}}"
+                                       data-field-index="{{ $index }}"
+                                       class="field-occupy"
+                                       ng-show="state | showOccupy : $index">
+                                    </div>
+                                    </div>
+                                </div>
+                              <div ng-cloak
+                                   class="field-occupy"
+                                   ng-show="state | showInitOccupy"></div>
                             </div>
                         </div>
-                        <div class="form-footer ng-scope" ng-controller="FormActionCtrl" id="form-footer">
-                            <a href="javascript:void(0);" class="ui-button-gray" ng-click="preview()">预览</a>
-                            <a href="javascript:void(0);" class="ui-button-gold" ng-click="saveForm()">保存表单</a>
-                        </div>
+                    </div>
+                    <div class="form-footer ng-scope" ng-controller="FormActionCtrl" id="form-footer">
+                        <a href="javascript:void(0);" class="ui-button-gray" ng-click="preview()">预览</a>
+                        <a href="javascript:void(0);" class="ui-button-gold" ng-click="saveForm()">保存表单</a>
                     </div>
                 </div>
                 <!-- ngIf: showRightPane -->
                 <div class="settings right-pane ng-scope" ng-if="showRightPane">
                     <div tab-nav="" class="tab-nav ng-isolate-scope" pane-position="right">
-                        <div class="tab-content" >
-                            <tab-pane tab-title="组件设置" mode="editField" class="ng-scope ng-isolate-scope">
-                                
-                            </tab-pane>
-                        </div>
+                        <tab-pane tab-title="组件设置" mode="editField" class="ng-scope ng-isolate-scope">
+                            <div style="overflow-y: auto;overflow-x: hidden;" class="ng-scope">
+                                <div id="field-editor-wrapper">
+                                    <div class="setting-editor filed-setting" id="editField">
+                                    <field-editor><no-field-editor class="ng-scope">
+                                        <div class="no-field setting-group">
+                                            <label class="first">未选择任何组件</label>
+                                        </div>
+                                    </no-field-editor></field-editor>
+                                    </div>
+                                </div>
+                            </div>
+                        </tab-pane>
                     </div>
                 </div>
                 <!-- end ngIf: showRightPane -->
-            </div>
         </div>
     <script type="text/template" id="text-input-tpl">
         <div class="field-group">
