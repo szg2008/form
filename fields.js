@@ -222,9 +222,9 @@ formModule.directive("uploadLimit", function() {
   return {restrict: "E", template: getTplHtml("upload-limit-tpl")};
 });
 
-formModule.directive('tagSetting', function() {
-  return {restrict: 'E', template: getTplHtml("tag-setting-tpl")};
-});
+// formModule.directive('tagSetting', function() {
+//   return {restrict: 'E', template: getTplHtml("tag-setting-tpl")};
+// });
 
 formModule.directive("syncSetting", function() {
   return {
