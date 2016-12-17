@@ -488,7 +488,8 @@ formModule.directive("ueditor", function($timeout) {
           enableAutoSave: false,
           toolbars: [["bold","italic","underline","insertimage","|",'removeformat','forecolor','backcolor']],
           zIndex: 0,
-          initialStyle:'body{font-size: 12px;}'});
+          initialStyle:'body{font-size: 12px;}'
+        });
         ue.ready(function() {
           var content = model.$viewValue;
           if(content) {
@@ -1032,29 +1033,34 @@ formModule.controller("FormActionCtrl", function($scope, $element, $http, AppSta
     AppState.mode = "createForm";
   };
 
+  //表单预览
   $scope.preview = function() {
-    if(!Form.checkFieldSettingErrors()){
-      return;
-    }
-    var form = document.createElement("form");
-    if(document.getElementById("form-preview-submit")) {
-      angular.element(form).remove();
-    }
-    angular.element(document.body).append(form);
-    angular.element(form).attr("id", "form-preview-submit");
-    form["action"] = "/member/form/preview";
-    form["method"] = "POST";
-    form["target"] = "_blank";
     var data = {};
     data['form'] = angular.toJson(AppState.form);
-    angular.forEach(data, function(value, name) {
-      var input = document.createElement("input");
-      input.type = 'hidden';
-      input.name = name;
-      input.value = value;
-      form.appendChild(input);
-    });
-    form.submit();
+    console.log(JSON.parse(data['form']));
+    open('/form/preview.html');
+  //   if(!Form.checkFieldSettingErrors()){
+  //     return;
+  //   }
+  //   var form = document.createElement("form");
+  //   if(document.getElementById("form-preview-submit")) {
+  //     angular.element(form).remove();
+  //   }
+  //   angular.element(document.body).append(form);
+  //   angular.element(form).attr("id", "form-preview-submit");
+  //   form["action"] = "/member/form/preview";
+  //   form["method"] = "POST";
+  //   form["target"] = "_blank";
+  //   var data = {};
+  //   data['form'] = angular.toJson(AppState.form);
+  //   angular.forEach(data, function(value, name) {
+  //     var input = document.createElement("input");
+  //     input.type = 'hidden';
+  //     input.name = name;
+  //     input.value = value;
+  //     form.appendChild(input);
+  //   });
+  //   form.submit();
   };
 });
 

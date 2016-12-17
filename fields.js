@@ -388,7 +388,7 @@ formModule.directive("imgOptionSetting", function(AppState) {
           var uploader = new Uploader({
               trigger: trigger,
               name: 'imgList-'+index,
-              action: '/member/form/upload',
+              action: '/member/form/upload',//上传图片
               accept: 'image/png,image/gif,image/jpeg,image/jpg',
               change: function(files){
                 uploader.submit();

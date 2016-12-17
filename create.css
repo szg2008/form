@@ -1808,7 +1808,7 @@ span.selected-manager {
   display: inline-block;
   width:22px;
   height:22px;
-  background:url(../img/member/sprites/ticket/ticket-pic-icons.png) 0 0 no-repeat;
+  background:url(./img/ticket-pic-icons.png) 0 0 no-repeat;
 }
 .setting-group .pic-uploader > img{
   vertical-align: top;

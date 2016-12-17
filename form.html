@@ -61,8 +61,8 @@
     <script>
     var _helpid = "";
     </script>
-    <!-- <script src="./lib/ueditor/zh-cn.js" type="text/javascript" defer="defer"></script>
-    <link href="./lib/ueditor/ueditor.css" type="text/css" rel="stylesheet"> -->
+    <script src="./lib/ueditor/zh-cn.js" type="text/javascript" defer="defer"></script>
+    <link href="./lib/ueditor/ueditor.css" type="text/css" rel="stylesheet">
     <link charset="utf-8" rel="stylesheet" href="./ui-tips-box.css">
     <link charset="utf-8" rel="stylesheet" href="./minEmoji.css">
     <link charset="utf-8" rel="stylesheet" href="./lib/jquery/jquery.mCustomScrollbar.css">
@@ -90,96 +90,94 @@
                 <!--Left start-->
                 <div class="settings">
                     <div tab-nav="" class="tab-nav ng-isolate-scope" pane-position="left">
-                        <div class="tab-content" >
-                            <tab-pane tab-title="组件" mode="createForm" class="ng-scope ng-isolate-scope">
-                                <div class="pane createForm" ng-show="state.mode == mode" >
-                                    <div class="fields ng-scope" id="field-box">
-                                        <div class="field-groups">
-                                            <h4>常规组件</h4>
-                                            <div class="field-list">
-                                                <ul class="fn-clear">
-                                                    <field type="textInput" name="单行文本框" class="text-input ng-scope">
-                                                    </field>
-                                                    <field type="textArea" name="多行文本框" class="text-area ng-scope">
-                                                    </field>
-                                                    <field type="numberInput" name="数字输入框" class="number-input ng-scope">
-                                                    </field>
-                                                    <field type="select" name="下拉菜单" class="select ng-scope">
-                                                    </field>
-                                                    <field type="radio" name="单选框" class="radio ng-scope">
-                                                    </field>
-                                                    <field type="checkbox" name="多选框" class="checkbox ng-scope">
-                                                    </field>
-                                                    <field type="img" name="图片单选" class="img ng-scope">
-                                                    </field>
-                                                    <field type="imgList" name="图片多选" class="imgList ng-scope">
-                                                    </field>
-                                                    <field type="date" name="日期" class="date ng-scope">
-                                                    </field>
-                                                    <field type="time" name="时间" class="time ng-scope">
-                                                    </field>
-                                                    <field type="score" name="评分" class="score ng-scope">
-                                                    </field>
-                                                    <field type="file" name="上传文件" class="file ng-scope">
-                                                    </field>
-                                                    <field type="richText" name="富文本" class="richText ng-scope">
-                                                    </field>
-                                                    <field type="splitLine" name="分割线" class="splitLine ng-scope">
-                                                    </field>
-                                                </ul>
-                                            </div>
+                        <tab-pane tab-title="组件" mode="createForm" class="ng-scope ng-isolate-scope">
+                            <div class="pane createForm" ng-show="state.mode == mode" >
+                                <div class="fields ng-scope" id="field-box">
+                                    <div class="field-groups">
+                                        <h4>常规组件</h4>
+                                        <div class="field-list">
+                                            <ul class="fn-clear">
+                                                <field type="textInput" name="单行文本框" class="text-input ng-scope">
+                                                </field>
+                                                <field type="textArea" name="多行文本框" class="text-area ng-scope">
+                                                </field>
+                                                <field type="numberInput" name="数字输入框" class="number-input ng-scope">
+                                                </field>
+                                                <field type="select" name="下拉菜单" class="select ng-scope">
+                                                </field>
+                                                <field type="radio" name="单选框" class="radio ng-scope">
+                                                </field>
+                                                <field type="checkbox" name="多选框" class="checkbox ng-scope">
+                                                </field>
+                                                <field type="img" name="图片单选" class="img ng-scope">
+                                                </field>
+                                                <field type="imgList" name="图片多选" class="imgList ng-scope">
+                                                </field>
+                                                <field type="date" name="日期" class="date ng-scope">
+                                                </field>
+                                                <field type="time" name="时间" class="time ng-scope">
+                                                </field>
+                                                <field type="score" name="评分" class="score ng-scope">
+                                                </field>
+                                                <field type="file" name="上传文件" class="file ng-scope">
+                                                </field>
+                                                <field type="richText" name="富文本" class="richText ng-scope">
+                                                </field>
+                                                <field type="splitLine" name="分割线" class="splitLine ng-scope">
+                                                </field>
+                                            </ul>
                                         </div>
-                                        <!-- <div class="field-groups">
-                                            <h4>用户信息组件</h4>
-                                            <div class="field-list">
-                                                <ul class="fn-clear">
-                                                    <field type="name" name="姓名" class="name ng-scope">
-                                                        <li>
-                                                            <div field-drag="" data-type="name" class="ng-binding">姓名</div>
-                                                        </li>
-                                                    </field>
-                                                    <field type="phone" name="手机" class="phone ng-scope">
-                                                        <li>
-                                                            <div field-drag="" data-type="phone" class="ng-binding">手机</div>
-                                                        </li>
-                                                    </field>
-                                                    <field type="address" name="地址" class="address ng-scope">
-                                                        <li>
-                                                            <div field-drag="" data-type="address" class="ng-binding">地址</div>
-                                                        </li>
-                                                    </field>
-                                                    <field type="email" name="邮箱" class="email ng-scope">
-                                                        <li>
-                                                            <div field-drag="" data-type="email" class="ng-binding">邮箱</div>
-                                                        </li>
-                                                    </field>
-                                                    <field type="birth" name="生日" class="birth ng-scope">
-                                                        <li>
-                                                            <div field-drag="" data-type="birth" class="ng-binding">生日</div>
-                                                        </li>
-                                                    </field>
-                                                    <field type="location" name="地区" class="location ng-scope">
-                                                        <li>
-                                                            <div field-drag="" data-type="location" class="ng-binding">地区</div>
-                                                        </li>
-                                                    </field>
-                                                    <field type="qq" name="QQ" class="qq ng-scope">
-                                                        <li>
-                                                            <div field-drag="" data-type="qq" class="ng-binding">QQ</div>
-                                                        </li>
-                                                    </field>
-                                                    <field type="gender" name="性别" class="gender ng-scope">
-                                                        <li>
-                                                            <div field-drag="" data-type="gender" class="ng-binding">性别</div>
-                                                        </li>
-                                                    </field>
-                                                </ul>
-                                            </div>
-                                        </div> -->
                                     </div>
+                                    <!-- <div class="field-groups">
+                                        <h4>用户信息组件</h4>
+                                        <div class="field-list">
+                                            <ul class="fn-clear">
+                                                <field type="name" name="姓名" class="name ng-scope">
+                                                    <li>
+                                                        <div field-drag="" data-type="name" class="ng-binding">姓名</div>
+                                                    </li>
+                                                </field>
+                                                <field type="phone" name="手机" class="phone ng-scope">
+                                                    <li>
+                                                        <div field-drag="" data-type="phone" class="ng-binding">手机</div>
+                                                    </li>
+                                                </field>
+                                                <field type="address" name="地址" class="address ng-scope">
+                                                    <li>
+                                                        <div field-drag="" data-type="address" class="ng-binding">地址</div>
+                                                    </li>
+                                                </field>
+                                                <field type="email" name="邮箱" class="email ng-scope">
+                                                    <li>
+                                                        <div field-drag="" data-type="email" class="ng-binding">邮箱</div>
+                                                    </li>
+                                                </field>
+                                                <field type="birth" name="生日" class="birth ng-scope">
+                                                    <li>
+                                                        <div field-drag="" data-type="birth" class="ng-binding">生日</div>
+                                                    </li>
+                                                </field>
+                                                <field type="location" name="地区" class="location ng-scope">
+                                                    <li>
+                                                        <div field-drag="" data-type="location" class="ng-binding">地区</div>
+                                                    </li>
+                                                </field>
+                                                <field type="qq" name="QQ" class="qq ng-scope">
+                                                    <li>
+                                                        <div field-drag="" data-type="qq" class="ng-binding">QQ</div>
+                                                    </li>
+                                                </field>
+                                                <field type="gender" name="性别" class="gender ng-scope">
+                                                    <li>
+                                                        <div field-drag="" data-type="gender" class="ng-binding">性别</div>
+                                                    </li>
+                                                </field>
+                                            </ul>
+                                        </div>
+                                    </div> -->
                                 </div>
-                            </tab-pane>
-                        </div>
+                            </div>
+                        </tab-pane>
                     </div>
                 </div>
                 <!--Left end-->
@@ -682,6 +680,7 @@
         <div class="setting-group">
             <label class="first">富文本内容</label>
             <div>
+                <ueditor ng-model="field.richContent" ng-attr-editor-id='rich-text-{{field.fieldId}}'></ueditor>
             </div>
         </div>
     </script>
@@ -1090,8 +1089,8 @@
         </div>
     </script>
     <script src="./location_v2.js"></script>
-    <!--<script src="./lib/ueditor/ueditor.config.js"></script>
-    <script src="./lib/ueditor/ueditor.all.js"></script>-->
+    <script src="./lib/ueditor/ueditor.config.js"></script>
+    <script src="./lib/ueditor/ueditor.all.js"></script>
     <script src="./lib/jquery/jquery-1.9.0.js"></script>
     <script src="./ZeroClipboard.min.js"></script>
     <script src="./lib/angular/angular.min.js"></script>
@@ -1103,7 +1102,7 @@
     <script src="./create.js"></script>
     <script src="./fields.js"></script>
     <script>
-        seajs.use("http://wx-static.drip.im/js/app.js", function(app) {
+        seajs.use("./app.js", function(app) {
             app.init('member/global');
         });
     </script>
