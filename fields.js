@@ -92,9 +92,6 @@ formModule.directive("irichText", function() {
 formModule.directive("isplitLine", function() {
   return {restrict: "E", template: getTplHtml("split-line-tpl")};
 });
-formModule.directive("igoods", function() {
-  return {restrict: "E", template: getTplHtml("goods-tpl")};
-});
 
 // 用户信息组件
 formModule.directive("iname", function() {
@@ -205,9 +202,6 @@ formModule.directive("noFieldEditor", function() {
 formModule.directive("labelSetting", function() {
   return {restrict: "E", template: getTplHtml("label-setting-tpl")};
 });
-formModule.directive("goodsSetting", function() {
-  return {restrict: "E", template: getTplHtml("goods-setting-tpl"),controller: "GoodsSettingCtrl",};
-});
 formModule.directive("richTextContentSetting", function() {
   return {restrict: "E", template: getTplHtml("rich-text-content-setting-tpl")};
 });
@@ -220,25 +214,6 @@ formModule.directive("placeholderSetting", function() {
 
 formModule.directive("uploadLimit", function() {
   return {restrict: "E", template: getTplHtml("upload-limit-tpl")};
-});
-
-// formModule.directive('tagSetting', function() {
-//   return {restrict: 'E', template: getTplHtml("tag-setting-tpl")};
-// });
-
-formModule.directive("syncSetting", function() {
-  return {
-    restrict: "E",
-    template: getTplHtml("sync-setting-tpl"),
-    link: function(scope) {
-      scope.defaultShow = function() {
-        var editField = scope.state.editField;
-        if(editField.sync && editField.sync.enable && editField.sync.show === undefined) {
-          editField.sync.show = true;
-        }
-      };
-    }
-  };
 });
 
 formModule.directive('locationSetting', function() {
@@ -847,45 +822,45 @@ formModule.directive( 'ngDefault', function() {
   };
 });
 
-formModule.directive( 'itemSetting', function(Form) {
-  return {
-    restrict: 'A',
-    link: function(scope, element, attrs) {
-      scope.updateMode = false;
-      scope.updateTrend = true;
-      scope.stockUpdateNum = 1;
-      scope.updateToken = false;
-      scope.changeUpdateMode = function(mode){
-        scope.updateMode = mode?false:true;
-      }
-      scope.updateStock = function(item){
-        if(scope.updateToken) return;
-        var number = scope.updateTrend?scope.stockUpdateNum:-scope.stockUpdateNum;
-        if(!scope.updateTrend && scope.stockUpdateNum > item.stock){
-          alert("减少数量，不能超过库存");
-          return;
-        }
-        scope.updateToken = true;
-        Form.updateStock(item,number).success(function(rs) {
-          scope.updateToken = false;
-          if(rs.status == "success") {
-            scope.updateMode = false;
-            item.stock = parseInt(rs.result);
-          }else{
-            alert(rs.result);
-          }
-        }).error(function(err){
-          scope.updateToken = false;
-          alert("更新失败");
-        });
-      }
-      scope.cancelUpdateStock = function(){
-        scope.stockUpdateNum = 1;
-        scope.updateMode = false;
-      }
-    }
-  };
-});
+// formModule.directive( 'itemSetting', function(Form) {
+//   return {
+//     restrict: 'A',
+//     link: function(scope, element, attrs) {
+//       scope.updateMode = false;
+//       scope.updateTrend = true;
+//       scope.stockUpdateNum = 1;
+//       scope.updateToken = false;
+//       scope.changeUpdateMode = function(mode){
+//         scope.updateMode = mode?false:true;
+//       }
+//       scope.updateStock = function(item){
+//         if(scope.updateToken) return;
+//         var number = scope.updateTrend?scope.stockUpdateNum:-scope.stockUpdateNum;
+//         if(!scope.updateTrend && scope.stockUpdateNum > item.stock){
+//           alert("减少数量，不能超过库存");
+//           return;
+//         }
+//         scope.updateToken = true;
+//         Form.updateStock(item,number).success(function(rs) {
+//           scope.updateToken = false;
+//           if(rs.status == "success") {
+//             scope.updateMode = false;
+//             item.stock = parseInt(rs.result);
+//           }else{
+//             alert(rs.result);
+//           }
+//         }).error(function(err){
+//           scope.updateToken = false;
+//           alert("更新失败");
+//         });
+//       }
+//       scope.cancelUpdateStock = function(){
+//         scope.stockUpdateNum = 1;
+//         scope.updateMode = false;
+//       }
+//     }
+//   };
+// });
 
 
 
@@ -925,36 +900,6 @@ formModule.filter( 'priceFormat', function() {
       return price + ".00";
     }else{
       return price;
-    }
-  };
-});
-
-formModule.directive("fansLimitSet", function() {
-  return {
-    restrict: "EA",
-    scope: {
-      fans:"=",
-      form:"=",
-      switch:"="
-    },
-    template: getTplHtml("fans-limit-set-tpl"),
-    controller: "FansLimitCtrl",
-    link: function(scope,ele,attr) {
-      $(ele).on("click",'input[type=checkbox]',function(){
-        var _this = $(this);
-        var type = _this.data("type");
-        if(type == "label"){
-          scope.addLabel(_this.val());
-        }else if(type == "group"){
-          scope.addGroup(_this.val());
-
-        }
-      });
-      scope.$watch(function() {
-        return scope.switch;
-      }, function() {
-        scope.setFansLimit();
-      });
     }
   };
 });

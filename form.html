@@ -82,7 +82,6 @@
             <div class="tab-content" ng-transclude></div>
         </script>
         <script type="text/template" id="tab-pane-tpl">
-
             <div class="pane {{mode}}" ng-show="state.mode == mode" ng-transclude></div>
         </script>
         <div class="box-full show-right-pane" show-right-pane="" ng-controller="DisplayFormController">
@@ -99,7 +98,7 @@
                                             <ul class="fn-clear">
                                                 <field type="textInput" name="单行文本框" class="text-input ng-scope">
                                                 </field>
-                                                <field type="textArea" name="多行文本框" class="text-area ng-scope">
+                                                <!-- <field type="textArea" name="多行文本框" class="text-area ng-scope">
                                                 </field>
                                                 <field type="numberInput" name="数字输入框" class="number-input ng-scope">
                                                 </field>
@@ -124,7 +123,7 @@
                                                 <field type="richText" name="富文本" class="richText ng-scope">
                                                 </field>
                                                 <field type="splitLine" name="分割线" class="splitLine ng-scope">
-                                                </field>
+                                                </field> -->
                                             </ul>
                                         </div>
                                     </div>
@@ -233,8 +232,7 @@
                         <a href="javascript:void(0);" class="ui-button-gold" ng-click="saveForm()">保存表单</a>
                     </div>
                 </div>
-                <!-- ngIf: showRightPane -->
-                <div class="settings right-pane ng-scope" ng-if="showRightPane">
+                <div class="settings right-pane ng-scope">
                     <div tab-nav="" class="tab-nav ng-isolate-scope" pane-position="right">
                         <tab-pane tab-title="组件设置" mode="editField" class="ng-scope ng-isolate-scope">
                             <div style="overflow-y: auto;overflow-x: hidden;" class="ng-scope">
@@ -251,7 +249,6 @@
                         </tab-pane>
                     </div>
                 </div>
-                <!-- end ngIf: showRightPane -->
         </div>
     <script type="text/template" id="text-input-tpl">
         <div class="field-group">
@@ -385,23 +382,6 @@
     <script type="text/template" id="split-line-tpl">
         <div class="field-group">
             <div class="split-line"><span>{{field.label}}</span></div>
-        </div>
-    </script>
-    <script type="text/template" id="goods-tpl">
-        <div class="field-group">
-            <label>{{field.label||'未命名标题'}}</label>
-            <div class="goods-list">
-                <div class="item" ng-repeat="item in field.items">
-                    <dl>
-                        <dt>{{item.name||"商品名称"}}</dt>
-                        <dd class="price">￥ {{(item.price||0) | priceFormat}}</dd>
-                        <dd ng-show="field.goodsCfg.showStock">（库存：{{item.stock||0}}）</dd>
-                    </dl>
-                    <!-- <div class="control">
-          <em>-</em><span class="num">{{item.pri||0}}</span><em>+</em>
-        </div>-->
-                </div>
-            </div>
         </div>
     </script>
     <!-- 用户信息组件 -->
@@ -710,73 +690,6 @@
             </div>
         </div>
     </script>
-    <script type="text/template" id="goods-setting-tpl">
-        <div class="setting-group">
-            <label>商品</label>
-            <div>
-                <ul>
-                    <li ng-repeat="item in field.items" item-setting class="item-setting">
-                        <input type="text" ng-model="item.name" ng-required="true">
-                        <div class="sku">
-                            <div class="fn-clear price">
-                                <span>单价</span>
-                                <input type="text" class="number-input" ng-model="item.price" ng-required="true" min="0.01" price-limit>
-                                <span>元</span>
-                            </div>
-                            <div class="fn-clear stock">
-                                <span>库存</span>
-                                <input ng-if="!item.id" type="text" class="number-input" ng-model="item.stock" ng-required="true" min="0" ng-max="999999" ng-pattern="/^\d+$/">
-                                <span ng-if="item.id" class="stock-edit" ng-click="changeUpdateMode(updateMode)">{{item.stock}}<em></em></span>
-                                <div class="update-stock" ng-show="updateMode">
-                                    <label>修改库存</label>
-                                    <p>
-                                        <input type="radio" ng-model="updateTrend" ng-value="true">增加
-                                        <input type="radio" ng-model="updateTrend" ng-value="false">减少
-                                    </p>
-                                    <p>
-                                        <input type="text" class="number-input" ng-model="stockUpdateNum" min="1" ng-pattern="/^\d+$/"></input>
-                                    </p>
-                                    <div>
-                                        <a href="javascript:;" class="ui-button-gold-small" ng-click="updateStock(item)">确定</a>
-                                        <a href="javascript:;" class="ui-button-gray-small" ng-click="cancelUpdateStock()">取消</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="control">
-                            <em ng-click="addItem(item,$index)">+</em>
-                            <em ng-if="field.items.length > 1" ng-click="deleteItem(item,$index)">-</em>
-                        </div>
-                        <p class="limit">
-                            <input type="checkbox" ng-true-value="true" ng-false-value="false" ng-model="item.limit_status">每单限购
-                            <input ng-if="item.limit_status" type="text" class="number-input" ng-model="item.limit_num" ng-required="true" min="1" ng-max="999999" ng-pattern="/^\d+$/">
-                        </p>
-                    </li>
-                </ul>
-                <p class="show-stock">
-                    <input type="checkbox" ng-true-value="true" ng-false-value="false" ng-model="field.goodsCfg.showStock">显示库存</p>
-            </div>
-        </div>
-        <div class="setting-group">
-            <label>商品选择</label>
-            <div>
-                <p>
-                    <input type="radio" ng-model="field.goodsCfg.multiChoice" ng-value="true">多选
-                    <input type="radio" ng-model="field.goodsCfg.multiChoice" ng-value="false">单选
-                </p>
-            </div>
-        </div>
-        <div class="setting-group">
-            <label>支付方式</label>
-            <div>
-                <p>
-                    <input type="checkbox" checked="checked" disabled="disabled">微信支付
-                    <a ng-if="state.payConfigured" class="pay-configured" href="http://weixin.drip.im/member/profile/payment" target="_blank">修改设置</a>
-                    <a ng-if="!state.payConfigured" class="alarm-tip" ng-click="state.payConfiguring = true" href="http://weixin.drip.im/member/profile/payment" target="_blank">请先完成配置</a>
-                </p>
-            </div>
-        </div>
-    </script>
     <script type="text/template" id="option-setting-tpl">
         <div class="setting-group">
             <label>{{label}}</label>
@@ -817,30 +730,6 @@
                 </ul>
             </div>
         </div>
-    </script>
-    <script type="text/template" id="sync-setting-tpl">
-        <div class="setting-group" ng-show="state.hasApi">
-            <label>同步到客户库</label>
-            <div>
-                <input type="checkbox" ng-model="field.sync.enable" ng-change='defaultShow()' />同步
-                <div ng-show='field.sync.enable' class="sync-setting">
-                    如果客户库已经有该信息，那么是否显示？
-                    <p>
-                        <input type='radio' ng-model='field.sync.show' ng-value='true' />显示并读取</p>
-                    <p>
-                        <input type='radio' ng-model='field.sync.show' ng-value='false' />不显示</p>
-                </div>
-            </div>
-        </div>
-    </script>
-    <script type="text/template" id="tag-setting-tpl">
-        // <div class="setting-group">
-        //     <label>同步成标签<em></em></label>
-        //     <div>
-        //         <p class="setting-tip">将用户选择的内容同步成标签，在客户管理可以搜索、精准营销。</p>
-        //         <input type="checkbox" ng-disabled="!state.hasApi" ng-model="field.tagSyncEnable" />开启 <span ng-show="!state.hasApi" class="tips">仅支持已认证服务号</span>
-        //     </div>
-        // </div>
     </script>
     <script type="text/template" id="pattern-setting-tpl">
         <div class="setting-group">
@@ -970,123 +859,6 @@
         <span class="trace-trigger ui-switch" ng-class="{true:'on', false: ''}[on]">
             <span class="plug"></span>
         </span>
-    </script>
-    <script type="text/template" id="fans-limit-set-tpl">
-        <div class="tip-popup fans-limit-set" ng-show="switch">
-            <div class="modal ui-win-pop">
-                <div class="pop-hd">
-                    <h3 ng-show="step == 'set'">设置特定粉丝填写</h3>
-                    <h3 ng-show="step == 'label'">请选择标签</h3>
-                    <h3 ng-show="step == 'group'">请选择分组</h3>
-                    <a href="javascript:void(0);" class="pop-close" ng-click="cancelFansSet();"><em></em></a>
-                </div>
-                <div class="pop-bd fn-clear" ng-class="{'filter':step != 'set'}">
-                    <div class="pop-bd-wrap">
-                        <div class="field">
-                            <label>填写范围</label>
-                            <div class="fans-range fn-clear">
-                                <div class="all" ng-class="{'selected':fans.range == 'all'}" ng-click="fans.range = 'all'">
-                                    <img ng-show="fans.range == 'all'" src="http://wx-static.drip.im/img/member/single/form/heart-active-icon.png">
-                                    <img ng-show="fans.range != 'all'" src="http://wx-static.drip.im/img/member/single/form/heart-icon.png"> 所有粉丝
-                                </div>
-                                <div class="part" ng-class="{'selected':fans.range == 'part'}" ng-click="fans.range = 'part'">
-                                    <img ng-show="fans.range == 'part'" src="http://wx-static.drip.im/img/member/single/form/target-active-icon.png">
-                                    <img ng-show="fans.range != 'part'" src="http://wx-static.drip.im/img/member/single/form/target-icon.png"> 指定粉丝
-                                </div>
-                            </div>
-                        </div>
-                        <div class="fields-wrap" ng-show="fans.range == 'all'">
-                            <div class="field">
-                                <label>非粉丝进入表单后提示</label>
-                                <p>
-                                    <input type="radio" ng-model="fans.guide" ng-value="false" />无权查看
-                                </p>
-                                <p>
-                                    <input type="radio" ng-model="fans.guide" ng-value="true" />引导先成为粉丝
-                                </p>
-                            </div>
-                            <div class="field" ng-if="fans.guide">
-                                <label>成为粉丝后回复内容</label>
-                                <textarea ng-model="fans.reply"></textarea>
-                                <div class="preview">
-                                    <p>预览</p>
-                                    <img src="http://wx.qlogo.cn/mmopen/ZAyAP3esrh9xcLJA3iaRzAmTq0JWTZIVq7qJHR9KGTOUsV3UWuaDdhNIWtvvyPOicz6NFngsGQabaTMRBxJ01iaEAiaaKR35Pa0s/0" class="avatar">
-                                    <div class="message">
-                                        <p ng-bind-html="fans.reply|renderNewLine"></p>
-                                        <p><a href="javascript:;">点击进入</a>填写表单《{{form.title}}》</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="fields-wrap" ng-show="fans.range == 'part'">
-                            <div class="field">
-                                <span>
-              <input type="radio" ng-model="fans.filter" value="group"/>按组筛选
-            </span>
-                                <span>
-              <input type="radio" ng-model="fans.filter" value="label"/>按标签
-            </span>
-                            </div>
-                            <div class="field">
-                                <div class="range-box empty" ng-click="step = 'group'" ng-show="fans.filter == 'group' && !fans.groups.length">
-                                    + 添加组
-                                </div>
-                                <div class="range-box" ng-click="step = 'group'" ng-show="fans.filter == 'group' && fans.groups.length">
-                                    已选中{{fans.groups.length}}个组 <span ng-show="fans.groupFansNum">，共{{fans.groupFansNum}}位粉丝</span><em class="edit"></em>
-                                </div>
-                                <div class="range-box empty" ng-click="step = 'label'" ng-show="fans.filter == 'label' && !fans.labels.length ">
-                                    + 添加标签
-                                </div>
-                                <div class="range-box" ng-click="step = 'label'" ng-show="fans.filter == 'label' && fans.labels.length">
-                                    已选中{{fans.labels.length}}个标签 <span ng-show="fans.labelFansNum">，共{{fans.labelFansNum}}位粉丝</span><em class="edit"></em>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="filter-box" ng-show="step == 'label'">
-                        <div ng-hide="loading">
-                            <div class="overview" ng-show="fans.labels.length">
-                                已选中 <span>{{fans.labels.length}}个</span> 标签
-                            </div>
-                            <ul ng-show="customers.labels.length">
-                                <li ng-repeat="label in customers.labels">
-                                    <input type="checkbox" ng-checked="fans.labels.indexOf(label.name) >= 0" value="{{label.name}}" data-type="label" /> {{label.name}} <em>{{label.number}}</em>
-                                </li>
-                            </ul>
-                            <div class="empty" ng-show="!customers.labels.length">当前暂无标签，无法通过该方式筛选粉丝</div>
-                        </div>
-                        <div class="loading" ng-show="loading">
-                            正在加载数据...
-                        </div>
-                    </div>
-                    <div class="filter-box" ng-show="step == 'group' ">
-                        <div ng-hide="loading">
-                            <div class="overview" ng-show="fans.groups.length">
-                                已选中 <span>{{fans.groups.length}}个</span> 分组
-                            </div>
-                            <ul ng-show="customers.groups.length">
-                                <li ng-repeat="group in customers.groups">
-                                    <input type="checkbox" ng-checked="fans.groups.indexOf(group.id) >= 0" value="{{group.id}}" data-type="group" /> {{group.name}} <em>{{group.number}}</em>
-                                </li>
-                            </ul>
-                            <div class="empty" ng-show="!customers.groups.length">当前暂无分组，无法通过该方式筛选粉丝</div>
-                        </div>
-                        <div class="loading" ng-show="loading">
-                            正在加载数据...
-                        </div>
-                    </div>
-                </div>
-                <div class="pop-ft">
-                    <div class="pop-ft-wrap">
-                        <div class="pop-action">
-                            <a href="javascript:;" class="ui-button-gray" ng-show="step != 'set' " ng-click="step = 'set' ">返回上一步</a>
-                            <a href="javascript:;" class="ui-button-gold act-yes" ng-click="confirmFansSet();">确定</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-bg"></div>
-        </div>
     </script>
     <script src="./location_v2.js"></script>
     <script src="./lib/ueditor/ueditor.config.js"></script>
