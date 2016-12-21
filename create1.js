@@ -471,9 +471,6 @@ formModule.controller("TabNavCtrl", ['$scope', 'AppState', 'Form',  function($sc
         if(mode == "editField") {
             return Form.checkFieldSettingErrors();
         }
-        if(mode == "editForm") {
-            return Form.checkFormSettingErrors();
-        }
         return true;
     };
 }]);

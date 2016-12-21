@@ -1,10 +1,527 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-	<meta charset="UTF-8">
-	<title>预览</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=0">
+    <title>未命名表单</title>
+    <link rel="stylesheet" type="text/css" href="./preview/css/base.css">
+    <link rel="stylesheet" type="text/css" href="./preview/css/devices.min.css">
+    <link rel="stylesheet" type="text/css" href="./preview/css/dpl.css">
+    <link rel="stylesheet" type="text/css" href="./preview/css/preview.css">
+    <script src="./lib/angular/angular.min.js"></script>
+    <script>
+    	var _hook = {};
+    </script>
 </head>
+
 <body>
-	
+    <div class="screen">
+        <div class="preview-tip">
+            <em></em> 当前处于预览模式，可以模拟填写，但无法提交数据
+        </div>
+        <div class="ui-form default">
+            <div class="ui-title">
+                <h3>预览</h3>
+            </div>
+            <div class="ui-content form-fields" data-form-id="" data-openid="" data-success-tip="">
+                <div class="ui-field" id="field_102" data-field-id="102" data-field-type="textInput" data-validate="{required:true}" data-rule="[]">
+                    <label class="field-label">
+                        未命名标题
+                        <span class="required">*</span>
+                        <span class="tips"></span>
+                    </label>
+                    <div class="field-content">
+                        <input type="text" class="ui-input" placeholder="">
+                    </div>
+                </div>
+                <div class="ui-field " id="field_104" data-field-id="104" data-field-type="textArea" data-validate="{required:true}" data-rule="[]">
+                    <label class="field-label">
+                        未命名标题 <span class="required">*</span> <span class="tips"></span>
+                    </label>
+                    <div class="field-content">
+                        <textarea class="ui-textarea" placeholder=""></textarea>
+                    </div>
+                </div>
+                <div class="ui-field " id="field_106" data-field-id="106" data-field-type="numberInput" data-validate="{required:true}" data-rule="[]">
+                    <label class="field-label">
+                        未命名标题 <span class="required">*</span> <span class="tips"></span>
+                    </label>
+                    <div class="field-content">
+                        <input type="number" class="ui-input" placeholder="">
+                    </div>
+                </div>
+                <div class="ui-field " id="field_108" data-field-id="108" data-field-type="select" data-validate="{required:true}" data-rule="[]">
+                    <label class="field-label">
+                        未命名标题 <span class="required">*</span> <span class="tips"></span>
+                    </label>
+                    <div class="field-content">
+                        <div class="ui-select-wrap">
+                            <select class="ui-select">
+                                <option style="display: none;">请选择</option>
+                                <option value="1">选项</option>
+                                <option value="2">选项</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="ui-field " id="field_110" data-field-id="110" data-field-type="radio" data-validate="{required:true}" data-rule="[]">
+                    <label class="field-label">
+                        未命名标题 <span class="required">*</span> <span class="tips"></span>
+                    </label>
+                    <div class="field-content ui-list select-list">
+                        <div class="list-item">
+                            <input class="ui-radio" type="radio" name="110" value="1" data-label="选项">
+                            <div class="radio-outside">
+                                <div class="radio-inside"></div>
+                            </div>
+                            <span class="option-label">选项</span>
+                        </div>
+                        <div class="list-item">
+                            <input class="ui-radio" type="radio" name="110" value="2" data-label="选项">
+                            <div class="radio-outside">
+                                <div class="radio-inside"></div>
+                            </div>
+                            <span class="option-label">选项</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="ui-field " id="field_112" data-field-id="112" data-field-type="checkbox" data-validate="{required:true}" data-rule="[]">
+                    <label class="field-label">
+                        未命名标题 <span class="required">*</span> <span class="tips"></span>
+                        <span class="info">
+                              </span>
+                    </label>
+                    <div class="field-content ui-list select-list">
+                        <div class="list-item">
+                            <input class="ui-checkbox" type="checkbox" name="112" value="1" data-label="选项">
+                            <div class="checkbox-outside">
+                                <div class="checkbox-inside"></div>
+                            </div>
+                            <span class="option-label">选项</span>
+                        </div>
+                        <div class="list-item">
+                            <input class="ui-checkbox" type="checkbox" name="112" value="2" data-label="选项">
+                            <div class="checkbox-outside">
+                                <div class="checkbox-inside"></div>
+                            </div>
+                            <span class="option-label">选项</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="ui-field " id="field_114" data-field-id="114" data-field-type="img" data-validate="{required:true}" data-rule="[]">
+                    <label class="field-label">
+                        未命名标题 <span class="required">*</span> <span class="tips"></span>
+                    </label>
+                    <div class="field-content ui-list select-list img-select large fn-clear">
+                        <div class="list-item img-item">
+                            <div>
+                                <div class="img-box-wrapper">
+                                    <div class="img-box">
+                                        <img src="http://sns-img.b0.upaiyun.com/dunzd/1612/2115/27/14898491419111482305260.jpg"> </div>
+                                </div>
+                                <div class="wrap">
+                                    <input class="ui-radio" type="radio" name="114" value="1" data-label="选项">
+                                    <div class="radio-outside">
+                                        <div class="radio-inside"></div>
+                                    </div>
+                                    <span class="option-label">选项</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="list-item img-item">
+                            <div>
+                                <div class="img-box-wrapper">
+                                    <div class="img-box">
+                                        <img src="http://sns-img.b0.upaiyun.com/dunzd/1612/2115/27/14898491419111482305260.jpg"> </div>
+                                </div>
+                                <div class="wrap">
+                                    <input class="ui-radio" type="radio" name="114" value="2" data-label="选项">
+                                    <div class="radio-outside">
+                                        <div class="radio-inside"></div>
+                                    </div>
+                                    <span class="option-label">选项</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ui-field " id="field_118" data-field-id="118" data-field-type="imgList" data-validate="{required:true}" data-rule="[]">
+                    <label class="field-label">
+                        未命名标题 <span class="required">*</span> <span class="tips"></span>
+                        <span class="info">
+                              </span>
+                    </label>
+                    <div class="field-content ui-list select-list img-select fn-clear large">
+                        <div class="list-item img-item">
+                            <div>
+                                <div class="img-box-wrapper">
+                                    <div class="img-box">
+                                        <img src="http://sns-img.b0.upaiyun.com/dunzd/1612/2115/27/14898491419111482305260.jpg"> </div>
+                                </div>
+                                <div class="wrap">
+                                    <input class="ui-checkbox" type="checkbox" name="118" value="1" data-label="选项">
+                                    <div class="checkbox-outside">
+                                        <div class="checkbox-inside"></div>
+                                    </div>
+                                    <span class="option-label">选项</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="list-item img-item">
+                            <div>
+                                <div class="img-box-wrapper">
+                                    <div class="img-box">
+                                        <img src="http://sns-img.b0.upaiyun.com/dunzd/1612/2115/27/14898491419111482305260.jpg"> </div>
+                                </div>
+                                <div class="wrap">
+                                    <input class="ui-checkbox" type="checkbox" name="118" value="2" data-label="选项">
+                                    <div class="checkbox-outside">
+                                        <div class="checkbox-inside"></div>
+                                    </div>
+                                    <span class="option-label">选项</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ui-field " id="field_120" data-field-id="120" data-field-type="date" data-validate="{required:true}" data-rule="[]">
+                    <label class="field-label">
+                        日期 <span class="required">*</span> <span class="tips"></span>
+                    </label>
+                    <div class="field-content">
+                        <input class="ui-date" type="date">
+                    </div>
+                </div>
+                <div class="ui-field " id="field_122" data-field-id="122" data-field-type="time" data-validate="{required:true}" data-rule="[]">
+                    <label class="field-label">
+                        时间 <span class="required">*</span> <span class="tips"></span>
+                    </label>
+                    <div class="field-content ui-list inline-block">
+                        <div class="list-item">
+                            <div class="ui-select-wrap">
+                                <select class="ui-select hour">
+                                    <option style="display: none;">时</option>
+                                    <option value="0">00</option>
+                                    <option value="1">01</option>
+                                    <option value="2">02</option>
+                                    <option value="3">03</option>
+                                    <option value="4">04</option>
+                                    <option value="5">05</option>
+                                    <option value="6">06</option>
+                                    <option value="7">07</option>
+                                    <option value="8">08</option>
+                                    <option value="9">09</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12">12</option>
+                                    <option value="13">13</option>
+                                    <option value="14">14</option>
+                                    <option value="15">15</option>
+                                    <option value="16">16</option>
+                                    <option value="17">17</option>
+                                    <option value="18">18</option>
+                                    <option value="19">19</option>
+                                    <option value="20">20</option>
+                                    <option value="21">21</option>
+                                    <option value="22">22</option>
+                                    <option value="23">23</option>
+                                </select>
+                            </div>
+                        </div>
+                        <span>:</span>
+                        <div class="list-item">
+                            <div class="ui-select-wrap">
+                                <select class="ui-select minute">
+                                    <option style="display: none;">分</option>
+                                    <option value="0">00</option>
+                                    <option value="1">01</option>
+                                    <option value="2">02</option>
+                                    <option value="3">03</option>
+                                    <option value="4">04</option>
+                                    <option value="5">05</option>
+                                    <option value="6">06</option>
+                                    <option value="7">07</option>
+                                    <option value="8">08</option>
+                                    <option value="9">09</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12">12</option>
+                                    <option value="13">13</option>
+                                    <option value="14">14</option>
+                                    <option value="15">15</option>
+                                    <option value="16">16</option>
+                                    <option value="17">17</option>
+                                    <option value="18">18</option>
+                                    <option value="19">19</option>
+                                    <option value="20">20</option>
+                                    <option value="21">21</option>
+                                    <option value="22">22</option>
+                                    <option value="23">23</option>
+                                    <option value="24">24</option>
+                                    <option value="25">25</option>
+                                    <option value="26">26</option>
+                                    <option value="27">27</option>
+                                    <option value="28">28</option>
+                                    <option value="29">29</option>
+                                    <option value="30">30</option>
+                                    <option value="31">31</option>
+                                    <option value="32">32</option>
+                                    <option value="33">33</option>
+                                    <option value="34">34</option>
+                                    <option value="35">35</option>
+                                    <option value="36">36</option>
+                                    <option value="37">37</option>
+                                    <option value="38">38</option>
+                                    <option value="39">39</option>
+                                    <option value="40">40</option>
+                                    <option value="41">41</option>
+                                    <option value="42">42</option>
+                                    <option value="43">43</option>
+                                    <option value="44">44</option>
+                                    <option value="45">45</option>
+                                    <option value="46">46</option>
+                                    <option value="47">47</option>
+                                    <option value="48">48</option>
+                                    <option value="49">49</option>
+                                    <option value="50">50</option>
+                                    <option value="51">51</option>
+                                    <option value="52">52</option>
+                                    <option value="53">53</option>
+                                    <option value="54">54</option>
+                                    <option value="55">55</option>
+                                    <option value="56">56</option>
+                                    <option value="57">57</option>
+                                    <option value="58">58</option>
+                                    <option value="59">59</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ui-field " id="field_124" data-field-id="124" data-field-type="score" data-validate="{required:true}" data-rule="[]">
+                    <label class="field-label">
+                        评分 <span class="required">*</span> <span class="tips"></span>
+                    </label>
+                    <div class="field-content ui-score">
+                        <span>★</span>
+                        <span>★</span>
+                        <span>★</span>
+                        <span>★</span>
+                        <span>★</span>
+                    </div>
+                </div>
+                <div class="ui-field " id="field_126" data-field-id="126" data-field-type="splitLine" data-validate="[]" data-rule="[]">
+                    <div class="field-content">
+                        <div class="split-line">
+                            <span>分割线</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="ui-field " id="field_128" data-field-id="128" data-field-type="name" data-validate="{required:true}" data-rule="[]">
+                    <div class="">
+                        <label class="field-label">
+                            姓名 <span class="required">*</span> <span class="tips"></span>
+                        </label>
+                        <div class="field-content">
+                            <input type="text" class="ui-input" placeholder="请填写" value="">
+                        </div>
+                    </div>
+                </div>
+                <div class="ui-field " id="field_130" data-field-id="130" data-field-type="phone" data-validate="{required:true,mustLength:11}" data-rule="[]">
+                    <div class="">
+                        <label class="field-label">
+                            手机 <span class="required">*</span> <span class="tips"></span>
+                        </label>
+                        <div class="field-content">
+                            <input type="tel" class="ui-input" placeholder="手机" value="">
+                        </div>
+                    </div>
+                </div>
+                <div class="ui-field " id="field_132" data-field-id="132" data-field-type="address" data-validate="{required:true}" data-rule="[]">
+                    <div class="">
+                        <label class="field-label">
+                            地址 <span class="required">*</span> <span class="tips"></span>
+                        </label>
+                        <div class="field-content ui-list inline locations">
+                            <div class="list-item province">
+                                <div class="ui-select-wrap">
+                                    <select class="ui-select" data-default-set="">
+                                        <option style="display: none;">省</option>
+                                        <option value="北京">北京</option>
+                                        <option value="天津">天津</option>
+                                        <option value="河北">河北</option>
+                                        <option value="山西">山西</option>
+                                        <option value="内蒙古">内蒙古</option>
+                                        <option value="辽宁">辽宁</option>
+                                        <option value="吉林">吉林</option>
+                                        <option value="黑龙江">黑龙江</option>
+                                        <option value="上海">上海</option>
+                                        <option value="江苏">江苏</option>
+                                        <option value="浙江">浙江</option>
+                                        <option value="安徽">安徽</option>
+                                        <option value="福建">福建</option>
+                                        <option value="江西">江西</option>
+                                        <option value="山东">山东</option>
+                                        <option value="河南">河南</option>
+                                        <option value="湖北">湖北</option>
+                                        <option value="湖南">湖南</option>
+                                        <option value="广东">广东</option>
+                                        <option value="广西">广西</option>
+                                        <option value="海南">海南</option>
+                                        <option value="重庆">重庆</option>
+                                        <option value="四川">四川</option>
+                                        <option value="贵州">贵州</option>
+                                        <option value="云南">云南</option>
+                                        <option value="西藏">西藏</option>
+                                        <option value="陕西">陕西</option>
+                                        <option value="甘肃">甘肃</option>
+                                        <option value="青海">青海</option>
+                                        <option value="宁夏">宁夏</option>
+                                        <option value="新疆">新疆</option>
+                                        <option value="台湾">台湾</option>
+                                        <option value="澳门">澳门</option>
+                                        <option value="香港">香港</option>
+                                        <option value="钓鱼岛">钓鱼岛</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="list-item city">
+                                <div class="ui-select-wrap">
+                                    <select class="ui-select" data-default-set="">
+                                        <option style="display: none;">市</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="list-item county">
+                                <div class="ui-select-wrap">
+                                    <select class="ui-select" data-default-set="">
+                                        <option style="display: none;">区/县</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="field-content addressDetail">
+                            <textarea class="ui-textarea" placeholder="详细地址" data-default-set=""></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="ui-field " id="field_134" data-field-id="134" data-field-type="email" data-validate="{required:true}" data-rule="[]">
+                    <div class="">
+                        <label class="field-label">
+                            邮箱 <span class="required">*</span> <span class="tips"></span>
+                        </label>
+                        <div class="field-content">
+                            <input type="text" class="ui-input" placeholder="邮箱" value="">
+                        </div>
+                    </div>
+                </div>
+                <div class="ui-field " id="field_136" data-field-id="136" data-field-type="birth" data-validate="{required:true}" data-rule="[]">
+                    <div class="">
+                        <label class="field-label">
+                            出生年月 <span class="required">*</span> <span class="tips"></span>
+                        </label>
+                        <div class="field-content">
+                            <input class="ui-date" type="date" data-value="">
+                        </div>
+                    </div>
+                </div>
+                <div class="ui-field " id="field_138" data-field-id="138" data-field-type="location" data-validate="{required:true}" data-rule="[]">
+                    <div class="">
+                        <label class="field-label">
+                            地区 <span class="required">*</span> <span class="tips"></span>
+                        </label>
+                        <div class="field-content ui-list inline locations">
+                            <div class="list-item province">
+                                <div class="ui-select-wrap">
+                                    <select class="ui-select" data-default-value="">
+                                        <option style="display: none;">省</option>
+                                        <option value="北京">北京</option>
+                                        <option value="天津">天津</option>
+                                        <option value="河北">河北</option>
+                                        <option value="山西">山西</option>
+                                        <option value="内蒙古">内蒙古</option>
+                                        <option value="辽宁">辽宁</option>
+                                        <option value="吉林">吉林</option>
+                                        <option value="黑龙江">黑龙江</option>
+                                        <option value="上海">上海</option>
+                                        <option value="江苏">江苏</option>
+                                        <option value="浙江">浙江</option>
+                                        <option value="安徽">安徽</option>
+                                        <option value="福建">福建</option>
+                                        <option value="江西">江西</option>
+                                        <option value="山东">山东</option>
+                                        <option value="河南">河南</option>
+                                        <option value="湖北">湖北</option>
+                                        <option value="湖南">湖南</option>
+                                        <option value="广东">广东</option>
+                                        <option value="广西">广西</option>
+                                        <option value="海南">海南</option>
+                                        <option value="重庆">重庆</option>
+                                        <option value="四川">四川</option>
+                                        <option value="贵州">贵州</option>
+                                        <option value="云南">云南</option>
+                                        <option value="西藏">西藏</option>
+                                        <option value="陕西">陕西</option>
+                                        <option value="甘肃">甘肃</option>
+                                        <option value="青海">青海</option>
+                                        <option value="宁夏">宁夏</option>
+                                        <option value="新疆">新疆</option>
+                                        <option value="台湾">台湾</option>
+                                        <option value="澳门">澳门</option>
+                                        <option value="香港">香港</option>
+                                        <option value="钓鱼岛">钓鱼岛</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="list-item city">
+                                <div class="ui-select-wrap">
+                                    <select class="ui-select" data-default-value="">
+                                        <option style="display: none;">市</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ui-field " id="field_140" data-field-id="140" data-field-type="qq" data-validate="{required:true}" data-rule="[]">
+                    <div class="">
+                        <label class="field-label">
+                            QQ <span class="required">*</span> <span class="tips"></span>
+                        </label>
+                        <div class="field-content">
+                            <input type="tel" class="ui-input" placeholder="qq" value="">
+                        </div>
+                    </div>
+                </div>
+                <div class="ui-field " id="field_142" data-field-id="142" data-field-type="gender" data-validate="{required:true}" data-rule="[]">
+                    <div class="">
+                        <label class="field-label">
+                            性别 <span class="required">*</span> <span class="tips"></span>
+                        </label>
+                        <div class="ui-list field-content inline gender-list">
+                            <div class="list-item ui-button ">
+                                <input class="ui-radio" type="radio" name="142" value="1" data-label="男">
+                                <div class="radio-outside  ">
+                                    <div class="radio-inside"></div>
+                                </div>
+                                <span class="option-label">男</span>
+                            </div>
+                            <div class="list-item ui-button ">
+                                <input class="ui-radio" type="radio" name="142" value="2" data-label="女">
+                                <div class="radio-outside  ">
+                                    <div class="radio-inside"></div>
+                                </div>
+                                <span class="option-label">女</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="ui-button green" id="submit">提交</button>
+            </div>
+            <div class="hidden" data-userinfo="null" id="userinfo"></div>
+        </div>
+    </div>
 </body>
+
 </html>
