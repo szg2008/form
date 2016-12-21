@@ -3,8 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="2262df44-ac42-47b5-bb3d-7d8ad77ec4f1" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/create1.js" afterPath="$PROJECT_DIR$/create1.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fields1.js" afterPath="$PROJECT_DIR$/fields1.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/form1.html" afterPath="$PROJECT_DIR$/form1.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/preview.html" afterPath="$PROJECT_DIR$/preview.html" />
     </list>
     <ignored path="form.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -60,10 +59,10 @@
       <file leaf-file-name="form1.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/form1.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="13.5">
-              <caret line="429" column="17" selection-start-line="429" selection-start-column="17" selection-end-line="429" selection-end-column="17" />
+            <state vertical-scroll-proportion="-230.25">
+              <caret line="741" column="17" selection-start-line="741" selection-start-column="17" selection-end-line="741" selection-end-column="17" />
               <folding>
-                <marker date="1482292809641" expanded="true" signature="28:301" placeholder="..." />
+                <marker date="1482306722409" expanded="true" signature="28:301" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -73,9 +72,9 @@
         <entry file="file://$PROJECT_DIR$/create1.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="650" column="3" selection-start-line="650" selection-start-column="3" selection-end-line="650" selection-end-column="3" />
+              <caret line="651" column="3" selection-start-line="651" selection-start-column="3" selection-end-line="651" selection-end-column="3" />
               <folding>
-                <marker date="1482288640389" expanded="true" signature="23300:23303" placeholder="//..." />
+                <marker date="1482315586867" expanded="true" signature="23290:23293" placeholder="//..." />
               </folding>
             </state>
           </provider>
@@ -96,9 +95,11 @@
       <file leaf-file-name="fields1.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/fields1.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.42196533">
-              <caret line="273" column="0" selection-start-line="273" selection-start-column="0" selection-end-line="273" selection-end-column="0" />
-              <folding />
+            <state vertical-scroll-proportion="2.6763005">
+              <caret line="351" column="0" selection-start-line="351" selection-start-column="0" selection-end-line="351" selection-end-column="0" />
+              <folding>
+                <marker date="1482307104323" expanded="true" signature="16267:16286" placeholder="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -481,10 +482,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/form1.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="13.5">
-          <caret line="429" column="17" selection-start-line="429" selection-start-column="17" selection-end-line="429" selection-end-column="17" />
+        <state vertical-scroll-proportion="-230.25">
+          <caret line="741" column="17" selection-start-line="741" selection-start-column="17" selection-end-line="741" selection-end-column="17" />
           <folding>
-            <marker date="1482292809641" expanded="true" signature="28:301" placeholder="..." />
+            <marker date="1482306722409" expanded="true" signature="28:301" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -500,9 +501,9 @@
     <entry file="file://$PROJECT_DIR$/create1.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="650" column="3" selection-start-line="650" selection-start-column="3" selection-end-line="650" selection-end-column="3" />
+          <caret line="651" column="3" selection-start-line="651" selection-start-column="3" selection-end-line="651" selection-end-column="3" />
           <folding>
-            <marker date="1482288640389" expanded="true" signature="23300:23303" placeholder="//..." />
+            <marker date="1482315586867" expanded="true" signature="23290:23293" placeholder="//..." />
           </folding>
         </state>
       </provider>
@@ -519,9 +520,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/fields1.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.42196533">
-          <caret line="273" column="0" selection-start-line="273" selection-start-column="0" selection-end-line="273" selection-end-column="0" />
-          <folding />
+        <state vertical-scroll-proportion="2.6763005">
+          <caret line="351" column="0" selection-start-line="351" selection-start-column="0" selection-end-line="351" selection-end-column="0" />
+          <folding>
+            <marker date="1482307104323" expanded="true" signature="16267:16286" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>

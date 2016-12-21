@@ -10,6 +10,7 @@
     <link rel="stylesheet" type="text/css" href="./preview/css/dpl.css">
     <link rel="stylesheet" type="text/css" href="./preview/css/preview.css">
     <script src="./lib/angular/angular.min.js"></script>
+    <script src="./preview/js/preview.js"></script>
     <script>
     	var _hook = {};
     </script>
@@ -20,12 +21,12 @@
         <div class="preview-tip">
             <em></em> 当前处于预览模式，可以模拟填写，但无法提交数据
         </div>
-        <div class="ui-form default">
+        <div class="ui-form default" ng-app="preview" ng-controller="previewController">
             <div class="ui-title">
                 <h3>预览</h3>
             </div>
             <div class="ui-content form-fields" data-form-id="" data-openid="" data-success-tip="">
-                <div class="ui-field" id="field_102" data-field-id="102" data-field-type="textInput" data-validate="{required:true}" data-rule="[]">
+<!--                 <div class="ui-field" id="field_102" data-field-id="102" data-field-type="textInput" data-validate="{required:true}" data-rule="[]">
                     <label class="field-label">
                         未命名标题
                         <span class="required">*</span>
@@ -516,12 +517,24 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
                 <button class="ui-button green" id="submit">提交</button>
             </div>
             <div class="hidden" data-userinfo="null" id="userinfo"></div>
         </div>
     </div>
+    <script type="text/template" id="text-input-tpl">
+    	<div class="ui-field" id="field_{{}}" data-field-id="102" data-field-type="textInput" data-validate="{required:true}" data-rule="[]">
+            <label class="field-label">
+                {{}}
+                <span class="required">*</span>
+                <span class="tips"></span>
+            </label>
+            <div class="field-content">
+                <input type="text" class="ui-input" placeholder="">
+            </div>
+        </div>	
+    </script>
 </body>
 
 </html>

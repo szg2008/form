@@ -623,7 +623,8 @@ formModule.controller("FormActionCtrl", function($scope, $element, $http, AppSta
     $scope.preview = function() {
         var data = {};
         data['form'] = angular.toJson(AppState.form);
-        console.log(JSON.parse(data['form']));
+        // console.log(JSON.parse(data['form']));
+        console.log(data['form']);
         open('/form/preview.html');
         //   if(!Form.checkFieldSettingErrors()){
         //     return;
