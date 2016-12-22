@@ -6,7 +6,7 @@ formModule.service('Form',['$rootScope', 'AppState', '$http',function(rootScope,
             if(!service.checkFieldSettingErrors()){
                 return;
             }
-            var field = service.getFieldByType(type);
+            var field = service.getFieldByType(type);//获取field对象
             service.insertField(field, fieldId,fieldIdx);
         },
         insertField: function(field, fieldId,fieldIdx) {
@@ -269,7 +269,7 @@ formModule.factory('AppState', function() {
         //hasApi: _hook && _hook.hasApi,
         payConfigured:_hook.payConfigured,
         payConfiguring:false,
-        fansLimitSetting:false,
+        //fansLimitSetting:false,
         //accountLevel:_hook.accountLevel,
         //hasSilverRight: _hook.hasSilverRight,
         //fromComponent: _hook && _hook.fromComponent,
