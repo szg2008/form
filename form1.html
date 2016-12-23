@@ -637,7 +637,7 @@
                 <div>
                     <check-group ng-init="field.fieldPattern.size = field.fieldPattern.size||'large'" class="check-group fn-clear {{field.fieldPattern.size}}" options='["大图", "large", "小图", "normal"]' ng-model="field.fieldPattern.size">
                     </check-group>
-                    <div class="pattern-size" ng-init="field.fieldPattern.shape = field.fieldPattern.shape||'rectangle'">
+                    <!--<div class="pattern-size" ng-init="field.fieldPattern.shape = field.fieldPattern.shape||'rectangle'">
                         <p ng-show="field.fieldPattern.size == 'large'">
                             <span class="rectangle">
                                 <input type='radio' ng-model="field.fieldPattern.shape" ng-value="'rectangle'"><em></em>横版图片
@@ -656,7 +656,7 @@
                             <span ng-show="field.fieldPattern.shape == 'vertical'">640像素 * 853像素</span>
                             <span ng-show="field.fieldPattern.shape == 'square'">640像素 * 640像素</span>
                         </p>
-                    </div>
+                    </div>-->
                 </div>
             </div>
         </script>
